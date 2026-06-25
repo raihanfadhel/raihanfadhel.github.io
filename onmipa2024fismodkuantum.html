@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raihan Fadhel | Projects</title>
+    <style>
+        /* --- SKEMA WARNA & VARIABEL --- */
+        :root {
+            --bg-color: #f7ede2; 
+            --text-color: #3d3124;
+            --link-color: #a67c52;
+            --header-bg: #eaddcb;
+            --border-color: #d4c2ab;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #251e16; 
+            --text-color: #f2e6d8;
+            --link-color: #dcb38a;
+            --header-bg: #1c1610;
+            --border-color: #4a3c2d;
+        }
+
+        p {text-align: justify;}
+
+        /* --- STYLING DASAR --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            
+            /* Mencegah Google Translate menggeser halaman ke bawah */
+            top: 0 !important; 
+        }
+
+        /* Menyembunyikan banner atas Google Translate yang muncul otomatis */
+        .VIpgJd-ZVi9od-ORHb-OEVmcd { display: none !important; }
+        .goog-te-banner-frame { display: none !important; }
+
+        /* --- HEADER & NAVIGASI --- */
+        header {
+            background-color: var(--header-bg);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--link-color);
+            text-decoration: underline;
+            text-underline-offset: 5px;
+        }
+
+        /* --- TOMBOL AKSI & WIDGET TRANSLATE --- */
+        .action-btns {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--border-color);
+        }
+
+        /* Modifikasi Dropdown Google Translate agar senada dengan desain elegan */
+        #google_translate_element select {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* Menyembunyikan teks 'Powered by Google' */
+        .goog-logo-link, .goog-te-gadget span {
+            display: none !important;
+        }
+        .goog-te-gadget {
+            color: transparent !important;
+            font-size: 0;
+        }
+
+        /* --- KONTEN UTAMA --- */
+        main {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        h2, h3 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 1rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+            opacity: 0.8;
+        }
+
+        .date {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        .gambar-tengah {
+    display: block;
+    margin: 2rem auto; /* Memberi jarak atas-bawah dan memposisikan gambar di tengah */
+    max-width: 100%; /* Memastikan gambar tidak melebihi lebar layar */
+    width: 400px; /* Kamu bisa mengubah angka ini untuk memperbesar/memperkecil gambar */
+    border-radius: 8px; /* Opsional: Membuat sudut gambar menjadi sedikit membulat/tidak lancip */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Opsional: Memberi efek bayangan tipis agar elegan */
+}
+
+        .blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.blog-card {
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    color: inherit; /* Mengikuti warna teks tema */
+    display: block;
+}
+
+.blog-card:hover {
+    background-color: var(--header-bg);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transform: translateY(-2px); /* Efek sedikit terangkat saat disentuh kursor */
+}
+
+.blog-card h3 {
+    margin-top: 0;
+    border-bottom: none;
+    margin-bottom: 0.5rem;
+    color: var(--link-color);
+}
+
+.blog-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--link-color);
+}
+    </style>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+</head>
+<body>
+
+    <header>
+        <h1>Raihan Fadhel</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="blog.html">Blog</a>
+            
+            <div class="action-btns">
+                <div id="google_translate_element"></div>
+                
+                <button class="btn" id="theme-btn">🌙 Dark Mode</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+    <a href="projects.html" style="display: inline-block; margin-bottom: 2rem; font-size: 0.9rem;">
+        &larr; Return to the project lists
+    </a>
+
+    <h2 style="border-bottom: none; margin-top: 0; padding-bottom: 0;">Pembahasan ONMIPA Fisika Tingkat Nasional Tahun 2024 Subbidang Fisika Modern dan Mekanika Kuantum</h2>
+    <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0;">Originally published on July 28th, 2025.</p>
+
+    <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 2rem 0;">
+
+    <h2>Soal nomor 1</h2>
+
+    <p>Tinjau sebuah partikel dalam kotak satu dimensi sepanjang $a$ (diluar kotak nilai potensialnya tidak terhingga, dan nilai potensial dalam kotak adalah 0). Partikel tersebut memenuhi dasar persamaan berikut
+$$-\frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2} \psi(x) + V(x)\psi(x) = E\psi(x)$$
+dengan $V$ : Energi Potensial partikel, $m$ : massa partikel, $E$ : Energi total Partikel, $\psi$ : fungsi gelombang partikel, dan $h$ : konstanta
+    
+    <p>Tentukan:</p>
+
+    <ol type="a">
+        <li>fungsi eigen ternormalisasi partikel</li>
+        <li>nilai energi ternormalisasi partikel</li>
+        <li>nilai energi partikel di $n = 2$, jika dalam keadaan dasar ($n = 1$) nilai energinya 38 eV.</li>
+    </ol>
+
+    <p><b>Jawaban:</b></p>
+
+    <p>a. Diketahui terdapat sistem kuantum 1D dengan potensial $$V(x) = \begin{cases} 
+0 & , \quad 0 < x < a \\ 
+\infty & , \quad \text{lainnya} 
+\end{cases}$$
+
+Kita bisa membagi sistem ini menjadi 2 wilayah berbeda.</p>
+
+<p><b>{Wilayah I}</b>, $V(x) = 0$. Persamaan Schrödinger menjadi
+$$-\frac{\hbar^2}{2m} \frac{d^2\psi}{dx^2} = E\psi \quad , \quad 0 < x < a$$
+$$\frac{d^2\psi}{dx^2} = -\frac{2mE}{\hbar^2} \psi$$
+Ini adalah persamaan diferensial orde 2 dengan solusi $\psi = A \sin(kx) + B \cos(kx)$ dengan $k = \sqrt{\frac{2mE}{\hbar^2}}$.</p>
+
+<p><b>{Wilayah II}</b>, $V(x) = \infty$, persamaan Schrödinger menjadi tidak terdefinisi dan tidak ada solusi untuk $\psi$. Dapat disimpulkan, partikel tidak mungkin ditemukan pada wilayah ini, atau $\psi = 0$.</p>
+
+<p>Selanjutnya, berdasar informasi di atas, untuk mencari konstanta $A$ dan $B$, diterapkan syarat batas $\psi(0) = 0$ dan $\psi(a) = 0$.
+\begin{align*}
+\psi(0) &= \cancelto{0}{A \sin(k \cdot 0)} + B \cos(k \cdot 0) = B = 0 \\
+\psi(a) &= A \sin(ka) = 0
+\end{align*}
+
+Persamaan ini akan terpenuhi ketika $ka = n\pi$, dengan $n = 1, 2, 3, \dots$. Diperoleh $\psi = A \sin\left(\frac{n\pi x}{a}\right)$. Konstanta $A$ kemudian dicari menggunakan syarat normalisasi $\int \psi^* \psi \, dx = 1$.
+
+$$ \int_{0}^{a} A^2 \sin^2\left(\frac{n\pi x}{a}\right) dx = 1 $$
+
+Memanfaatkan $\sin^2(x) = \frac{1}{2}(1 - \cos(2x))$, maka
+\begin{align*}
+\frac{1}{2} A^2 \int_{0}^{a} \left(1 - \cos\left(\frac{2n\pi x}{a}\right)\right) dx &= 1 \\
+\Rightarrow \frac{1}{2} A^2 \left[ \int_{0}^{a} dx - \int_{0}^{a} \cos\left(\frac{2n\pi x}{a}\right) dx \right] &= 1 \\
+\Rightarrow \frac{1}{2} A^2 \left[ a - \cancelto{0}{\left( \frac{a}{2n\pi} \sin\left(\frac{2n\pi x}{a}\right) \right)\bigg|_{0}^{a}} \right] &= 1 \\
+\Rightarrow \frac{1}{2} A^2 a &= 1 \\
+\Rightarrow A &= \sqrt{\frac{2}{a}}
+\end{align*}
+
+Sehingga diperoleh fungsi eigen ternormalisasi partikel adalah
+$$ \psi(x) = \sqrt{\frac{2}{a}} \sin\left(\frac{n\pi x}{a}\right) \quad , \quad 0 < x < a $$</p>
+    
+    <br>
+
+    <p>b. Nilai energi ternormalisasi partikel dapat diperoleh dengan persamaan Schrödinger.
+
+$$ -\frac{\hbar^2}{2m} \frac{d^2\psi(x)}{dx^2} = E\psi(x) $$
+
+Diketahui 
+\begin{align*}
+\frac{d\psi(x)}{dx} &= \sqrt{\frac{2}{a}} \frac{n\pi}{a} \cos\left(\frac{n\pi x}{a}\right) \\
+\frac{d^2\psi(x)}{dx^2} &= -\sqrt{\frac{2}{a}} \frac{n^2\pi^2}{a^2} \sin\left(\frac{n\pi x}{a}\right)
+\end{align*}
+
+\begin{align*}
+\Rightarrow -\frac{\hbar^2}{2m} \left( - \cancel{\sqrt{\frac{2}{a}}} \frac{n^2\pi^2}{a^2} \cancel{\sin\left(\frac{n\pi x}{a}\right)} \right) &= E \cancel{\sqrt{\frac{2}{a}}} \cancel{\sin\left(\frac{n\pi x}{a}\right)} \\
+\Rightarrow E &= \frac{n^2\pi^2\hbar^2}{2ma^2}.
+\end{align*}</p>
+
+    <br>
+
+
+    <p>c. Dalam keadaan dasar ($n=1$), $\displaystyle E = \frac{\pi^2\hbar^2}{2ma^2} = 38 \text{ eV}$
+
+$$ \text{Sehingga, pada } n=2 \Rightarrow E = 2^2 \cdot 38 \text{ eV} = 152 \text{ eV}. $$</p>
+
+    <h2>Soal nomor 2</h2>
+    
+    <p>Tinjau sebuah partikel dengan massa $m$ yang bergerak dalam potensial satu dimensi yang dapat dituliskan dalam bentuk $V(x) = -\alpha\delta(x)$, di mana $\delta(x)$ adalah fungsi delta Dirac. Partikel ini terikat ($E < 0$). Jika fungsi gelombang $\psi(x)$ mengandung konstanta $k$ (bilangan gelombang) dan $A$ (amplitudo), tentukan nilai $x_0$ sedemikian sehingga probabilitas menemukan partikel di $x < x_0$ adalah 1/2 (dinyatakan dalam $k$ dan $A$).</p>
+
+
+    <p><b>Jawaban:</b></p>
+
+    <p>Fungsi delta dirac memiliki sifat-sifat berikut:
+$$ \delta(x) = \begin{cases} \infty & , \quad x = 0 \\ 0 & , \quad \text{lainnya} \end{cases} $$
+$$ \int_{-\infty}^{\infty} \delta(x) \, dx = 1 \quad , \quad \text{dan} \quad \int_{-\infty}^{\infty} f(x) \delta(x-a) \, dx = f(a) $$
+
+Bentuk potensial sistem ini dapat didefinisikan sebagai:
+$$ V(x) = -\alpha\delta(x) = \begin{cases} -\infty & , \quad x = 0 \\ 0 & , \quad \text{lainnya} \end{cases} $$
+
+Persamaan Schrödinger untuk sistem ini adalah
+$$ -\frac{\hbar^2}{2m} \frac{d^2\psi}{dx^2} - \alpha\delta(x)\psi = E\psi $$</p>
+
+<p><b>{Untuk $x < 0$, $V(x) = 0$}</b> Persamaan Schrödinger menjadi:
+\begin{align*}
+-\frac{\hbar^2}{2m} \frac{d^2\psi}{dx^2} &= E\psi \quad , \quad E < 0 \\
+\frac{d^2\psi}{dx^2} &= -\frac{2mE}{\hbar^2} \psi \quad , \quad E < 0
+\end{align*}
+
+Karena $E < 0$, maka solusinya adalah $\psi_1 = Ae^{kx} + Be^{-kx}$, dengan $k = \sqrt{-\frac{2mE}{\hbar^2}}$. </p>
+
+
+    <p>Perhatikan jika $x \to -\infty$, suku $Be^{-kx}$ akan membuat $\psi \to \infty$. Untuk menghindari fungsi gelombang yang tidak dapat ternormalisasi ini, maka $B = 0$. Sehingga,
+$$\psi_1 = Ae^{kx} \quad , \quad x < 0$$ Untuk $x > 0, V(x) = 0$.
+
+Sehingga solusi $\psi$ adalah sama dengan sebelumnya, yaitu $\psi_2 = C e^{-kx} + D e^{kx}$. Perhatikan bahwa suku $D e^{kx}$ membuat $\psi \to \infty$ saat $x \to \infty$.
+
+maka haruslah $D = 0$ yang membuat $\psi_2 = C e^{-kx} \quad , \quad x > 0$.</p>
+
+    <p>Mencari kaitan antara $A$ dan $C$ dapat dilakukan dengan mengaplikasikan syarat batas agar $\psi$ menjadi "well behaved", yaitu
+        $$ \underbrace{\psi_1(0) = \psi_2(0)}_{\textcolor{teal}{1}} \quad \text{dan} \quad \underbrace{\left. \frac{d\psi_1}{dx} \right|_{x \to 0} = \left. \frac{d\psi_2}{dx} \right|_{x \to 0}}_{\textcolor{red}{2}} $$
+Ingat bahwa turunan akan menjadi diskontinu pada $x=0$ karena $V(x) = -\infty$.
+    </p>
+
+    <p>Syarat 1 menghasilkan $\psi_1(0) = A$ dan $\psi_2(0) = C$ yang membuat $A = C$</p>
+
+
+
+    <p>Maka \quad $\psi(x) = \begin{cases} A e^{kx} & , \quad x \leq 0 \\ A e^{-kx} & , \quad x \geq 0 \end{cases} \quad = A e^{k|x|} \quad\text{untuk sembarang } x$</p>
+
+
+    <p>d. GGL induksi yang dihasilkan dari perubahan fluks magnet dipol diberikan oleh $\varepsilon = -\frac{d\Phi}{dt}$ dengan $\Phi = \int \vec{B} \cdot \hat{n} \, dA$. Fluks pada sembarang ketinggian $z$:</p>
+
+    <p>Syarat 2, yang seharusnya digunakan untuk mencari nilai $A$ dan $k$ agar bisa dinyatakan dalam $\alpha, m, \hbar$ \underline{tidak dipakai}, karena dalam soal cukup menyatakan $x_0$ dalam $A$ dan $k$.</p>
+
+    <p> Untuk membuat probabilitas menemukan partikel di $x < x_0$ agar bernilai $\frac{1}{2}$, maka
+
+\begin{align*}
+\int_{-\infty}^{x_0} \psi^* \psi \, dx = \frac{1}{2} \quad &\Rightarrow \quad A^2 \int_{-\infty}^{x_0} e^{2k|x|} \, dx = \frac{1}{2} \\
+&\Rightarrow \quad A^2 \left[ \int_{-\infty}^{0} e^{2kx} \, dx + \int_{0}^{x_0} e^{-2kx} \, dx \right] = \frac{1}{2} \\
+&\Rightarrow \quad A^2 \left[ \left. \frac{1}{2k} e^{kx} \right|_{-\infty}^{0} + \left. -\frac{1}{2k} e^{-2kx} \right|_{0}^{x_0} \right] = \frac{1}{2} \\
+&\Rightarrow \quad A^2 \left[ \left(\frac{1}{2k} - 0\right) + \left(-\frac{1}{2k} e^{-2kx_0} + \frac{1}{2k}\right) \right] = \frac{1}{2} \\
+&\Rightarrow \quad A^2 \left[ \frac{1}{k} - \frac{1}{2k} e^{-2kx_0} \right] = \frac{1}{2} \\
+&\Rightarrow \quad \frac{A^2}{k} \left[ 1 - \frac{1}{2} e^{-2kx_0} \right] = \frac{1}{2} \\
+&\Rightarrow \quad \frac{1}{2} e^{-2kx_0} = 1 - \frac{k}{2A^2} \\
+&\Rightarrow \quad -2kx_0 = \ln\left(2 - \frac{k}{A^2}\right) \\
+&\Rightarrow \quad x_0 = \frac{\ln\left(2 - \frac{k}{A^2}\right)}{-2k}
+\end{align*}</p>
+
+<p><b>* Tambahan (tidak perlu dikerjakan sampai sini)</b></p>
+
+<p>Jika dilakukan pencarian nilai $A$ dan $k$ agar dinyatakan secara eksplisit dalam $\alpha, m$, dan $\hbar$, maka digunakan syarat 2. Dari sini, diperoleh $\left. \frac{d\psi_1}{dx} \right|_{\substack{x \to 0 \\ x < 0}} = Ak$ dan $\left. \frac{d\psi_2}{dx} \right|_{\substack{x \to 0 \\ x > 0}} = -Ak$.</p>
+
+<p>Mengintegrasikan persamaan Schrödinger dari $-\epsilon$ ke $\epsilon$, dengan $\epsilon \to 0$, akan menghasilkan hubungan : \begin{align*}
+\textcolor{red}{-\frac{\hbar^2}{2m} \int_{-\epsilon}^{\epsilon} \frac{d^2\psi(x)}{dx^2} dx + \int_{-\epsilon}^{\epsilon} V(x)\psi(x) dx} &= \textcolor{red}{E \int_{-\epsilon}^{\epsilon} \psi(x) dx} \\
+\textcolor{red}{-\frac{\hbar^2}{2m} \left( \left. \frac{d\psi(x)}{dx} \right|_{x=\epsilon} - \left. \frac{d\psi(x)}{dx} \right|_{x=-\epsilon} \right) - \int_{-\epsilon}^{\epsilon} \alpha\delta(x)\psi(x) dx} &= \textcolor{red}{E \int_{-\epsilon}^{\epsilon} \psi(x) dx}
+\end{align*}</p>
+
+<p>ingat $\int_{-\infty}^{\infty} f(x)\delta(x-a) = f(a)$, maka $\int_{-\epsilon}^{\epsilon} \delta(x)\psi(x) = \int_{-\epsilon}^{\epsilon} \delta(x-0)\psi(x) = \psi(0)$</p>
+
+<p>dan diketahui untuk $\epsilon \to 0$ , $\int_{-\epsilon}^{\epsilon} \psi(x) dx = 0$.</p>
+
+<p>$$ \textcolor{red}{-\frac{\hbar^2}{2m} \left( \left. \frac{d\psi(x)}{dx} \right|_{x=\epsilon} - \left. \frac{d\psi(x)}{dx} \right|_{x=-\epsilon} \right) - \alpha\psi(0) = 0} $$
+
+$$ \textcolor{red}{\left. \frac{d\psi(x)}{dx} \right|_{x=\epsilon} - \left. \frac{d\psi(x)}{dx} \right|_{x=-\epsilon} = -\frac{2m\alpha}{\hbar^2}\psi(0)} $$</p>
+
+diketahui dari syarat 2 $\Rightarrow -Ak - Ak = -\frac{2m\alpha}{\hbar^2}\psi(0) \quad , \quad \epsilon = x \to 0$.
+\begin{align*}
+\textcolor{red}{\cancel{2A}k} &= \textcolor{red}{\frac{\cancel{2}m\alpha}{\hbar^2} \cancel{A}} \\
+\textcolor{red}{k} &= \textcolor{red}{\frac{m\alpha}{\hbar^2}.}
+\end{align*}
+
+Normalisasi $\psi$, menghasilkan
+\begin{align*}
+\textcolor{red}{A^2 \int_{-\infty}^{\infty} e^{2k|x|} dx} &= \textcolor{red}{1} \\
+\textcolor{red}{A^2 \left( \int_{-\infty}^{0} e^{2kx} dx + \int_{0}^{\infty} e^{-2kx} dx \right)} &= \textcolor{red}{1} \\
+\textcolor{red}{A^2 \left( \left. \frac{1}{2k} e^{2kx} \right|_{-\infty}^{0} - \left. \frac{1}{2k} e^{-2kx} \right|_{0}^{\infty} \right)} &= \textcolor{red}{1} \\
+\textcolor{red}{A^2 \left( \frac{1}{2k} + \frac{1}{2k} \right)} &= \textcolor{red}{1} \\
+\textcolor{red}{A} &= \textcolor{red}{\sqrt{k}.}
+\end{align*}
+
+Sehingga \quad $\displaystyle x_0 = \frac{\ln\left(2 - \frac{k}{k}\right)}{-2k} = \frac{\ln(2-1)}{-2k} = \frac{\ln(1)}{-2k}$
+
+$$ \textcolor{red}{x_0 = 0} $$
+
+Haha, mungkin ada alasan kenapa minta dinyatakan dalam $k$ dan $A$, karena setelah dilihat nilai eksplisitnya ternyata $x_0 = 0$.
+
+
+    <h2>Soal nomor 3</h2>
+
+    <p>Tinjau dua buah partikel, tanpa mempertimbangkan pengaruh spin berada di sumur potensial dengan nilai 0 untuk lokasi $0 \leq z \leq L$ dan bernilai tak berhingga untuk diluar area tersebut, masing-masing partikel bermassa $m$. Energi potensial dari interaksi antar partikel adalah $V(z_1, z_2) = a \cdot \delta(z_1 - z_2)$, dengan: $L$ : Panjang sumur potensial, $a$ : konstanta positif, $z$ : sumbu koordinat, $V$ : Energi potensial, dan $\delta(z_1 - z_2)$ : fungsi delta Dirac. Hitunglah</p>
+
+    <ol type="a">
+        <li>Energi potensial partikel dalam keadaan dasar.</li>
+        <li>Energi partikel pada orde pertama jika pengaruh interaksi antar partikel diperhitungkan.</li>
+    </ol>
+
+
+
+    <p><b>Jawaban:</b></p>
+
+    Secara umum, Hamiltonian dari sistem $N$-partikel 1D dinyatakan oleh
+$$ \hat{H}(z_1, z_2, \dots, z_N) = \sum_{i=1}^N \frac{\hat{p}_{z,i}^2}{2m_i} + \hat{V}(z_1, z_2, \dots, z_N) $$
+
+Jika partikel tidak saling berinteraksi, maka posisi partikel tidak akan saling berkaitan, yang berarti fungsi gelombang sistem dapat ditulis sebagai
+$$ \Psi(z_1, z_2, \dots, z_N) = \psi_1(z_1)\psi_2(z_2)\dots\psi_N(z_N) $$
+
+Ini menandakan persamaan Schrödinger tak gayut waktu dapat ditulis menjadi
+$$ \hat{H}_i \psi_i = E_i \psi_i $$
+dengan energi total sistem $\displaystyle E = \sum_i E_i$.
+
+    <p>Untuk mengerjakan no 3, pertama ditinjau sistem dua partikel tak berinteraksi pada sumur potensial dengan
+$$ V(z) = \begin{cases} 0 & , \quad 0 < z \leq L \\ \infty & , \quad \text{lainnya} \end{cases} $$
+dan masing-masing bermassa $m$. Dari soal no 1, kita tahu bahwa :
+
+$$ \psi_1 = \sqrt{\frac{2}{L}} \sin\left(\frac{n_1\pi z_1}{L}\right) \quad , \quad \psi_2 = \sqrt{\frac{2}{L}} \sin\left(\frac{n_2\pi z_2}{L}\right) \quad , \quad n_1, n_2 = 1, 2, 3, \dots $$
+
+Hamiltonian sistem partikel tak berinteraksi ini berupa
+$$ \hat{H} = -\frac{\hbar^2}{2m}\frac{d^2\psi_1}{dz^2} - \frac{\hbar^2}{2m}\frac{d^2\psi_2}{dz^2} \quad , \quad 0 \leq z \leq L. $$</p>
+
+<p>Energi partikel dalam kondisi saat mereka tidak berinteraksi yaitu:
+
+$$ E_1 = \frac{n_1^2\pi^2\hbar^2}{2mL^2} \quad \text{dan} \quad E_2 = \frac{n_2^2\pi^2\hbar^2}{2mL^2} $$</p>
+
+<p>dengan energi sistem adalah $\displaystyle E = E_1 + E_2 = \frac{(n_1^2+n_2^2)\pi^2\hbar^2}{2mL^2} .$</p>
+<br>
+
+
+    <p>a. Nilai ekspektasi $V$ pada keadaan dasar, $n_1=n_2=1$ yaitu
+\begin{align*}
+\langle V \rangle &= \langle \psi_0 | V(z_1, z_2) | \psi_0 \rangle = \int \psi_0^*(z_1, z_2) V(z_1, z_2) \psi_0(z_1, z_2) \, dz_1 dz_2 \\
+&= \frac{4a}{L^2} \int_0^L \int_0^L \sin^2\left(\frac{\pi z_1}{L}\right) \delta(z_1-z_2) \sin^2\left(\frac{\pi z_2}{L}\right) \, dz_1 dz_2
+\end{align*}</p>
+memanfaatkan kaitan $\int f(x)\delta(x-a)dx = f(a)$, maka diperoleh
+$$ \langle V \rangle = \frac{4a}{L^2} \int_0^L \sin^4\left(\frac{\pi z_2}{L}\right) dz_2 $$
+menggunakan identitas $\sin^2(x) = \frac{1}{2}(1 - \cos(2x))$,
+\begin{align*}
+\langle V \rangle &= \frac{4a}{L^2} \int_0^L \frac{1}{4} \left( 1 - \cos\left(\frac{2\pi z_2}{L}\right) \right)^2 dz_2 \\
+&= \frac{a}{L^2} \int_0^L \left( 1 - 2\cos\left(\frac{2\pi z_2}{L}\right) + \cos^2\left(\frac{2\pi z_2}{L}\right) \right) dz_2
+\end{align*}
+lalu gunakan $\cos^2(x) = 1 - \sin^2(x) = 1 - \frac{1}{2}(1 - \cos(2x))$
+(1 - \cos(2x))$}
+\begin{align*}
+\langle V \rangle &= \frac{a}{L^2} \int_0^L \left( 1 - 2\cos\left(\frac{2\pi z_2}{L}\right) + 1 - \frac{1}{2} + \cos\left(\frac{4\pi z_2}{L}\right) \right) dz_2 \\
+\langle V \rangle &= \frac{a}{L^2} \left( L + 0 + L - \frac{L}{2} + 0 \right) = \frac{a}{L^2} \frac{3L}{2} \\
+\langle V \rangle &= \frac{3a}{2L}
+\end{align*}
+
+    <br>
+
+    <p>b. Jika energi potensial interaksi $V(z_1, z_2) = a\delta(z_1 - z_2)$ diperhitungkan, maka untuk mencari energi sistem orde pertama dapat digunakan metode gangguan, yaitu
+$$ E^{(1)} = \frac{\langle \psi | V(z_1, z_2) | \psi \rangle}{\langle \psi | \psi \rangle} \quad , \quad \text{dengan} \quad \langle \psi | \psi \rangle = 1. $$
+
+\begin{align*}
+\text{Maka} \quad E^{(1)} &= \int_0^L \int_0^L \psi(z_1, z_2)^* V(z_1, z_2) \psi(z_1, z_2) \, dz_1 dz_2 \\
+E^{(1)} &= \frac{4a}{L^2} \int_0^L \int_0^L \sin^2\left(\frac{n_1\pi z_1}{L}\right) \sin^2\left(\frac{n_2\pi z_2}{L}\right) \delta(z_1 - z_2) \, dz_1 dz_2 .
+\end{align*}</p>
+Memanfaatkan kaitan $\int f(x)\delta(x-a)dx = f(a)$, maka diperoleh
+$$ E^{(1)} = \frac{4a}{L^2} \int_0^L \sin^2\left(\frac{n_1\pi z_2}{L}\right) \sin^2\left(\frac{n_2\pi z_2}{L}\right) dz_2 . $$
+agar bentuk integral menjadi lebih sederhana, dilakukan perubahan variabel.
+<p>Misal $\displaystyle u = \frac{\pi z_2}{L} \quad , \quad du = \frac{\pi}{L} dz_2 \quad , \quad z_2=0 , u=0 \quad \text{dan} \quad z_2=L , u=\pi .$</p>
+$$ E^{(1)} = \frac{4a}{\pi L} \int_0^\pi \sin^2(n_1 u) \sin^2(n_2 u) \, du $$
+
+Ubah $\displaystyle \sin^2(x) = \frac{1}{2}(1 - \cos(2x))$
+
+$$ E^{(1)} = \frac{a}{\pi L} \int_0^\pi (1 - \cos(2n_1 u))(1 - \cos(2n_2 u)) \, du $$
+
+$$ E^{(1)} = \frac{a}{\pi L} \int_0^\pi (1 - \cos(2n_2 u) - \cos(2n_1 u) + \cos(2n_1 u)\cos(2n_2 u)) \, du $$
+
+ubah $\cos x \cos y = \frac{1}{2} (\cos(x+y) + \cos(x-y))$
+\begin{align*}
+E^{(1)} &= \frac{a}{\pi L} \int_0^\pi \left( 1 - \cos(2n_2 u) - \cos(2n_1 u) + \frac{1}{2}\cos(2u(n_1+n_2)) + \frac{1}{2}\cos(2u(n_1-n_2)) \right) du \\
+E^{(1)} &= \frac{a}{\pi L} [ \pi + 0 + 0 + 0 + 0 ] = \frac{a}{L}
+\end{align*}
+Sehingga energi sistem pada koreksi pertama adalah
+$$ E \approx E^{(0)} + E^{(1)} = \frac{(n_1^2+n_2^2)\pi^2\hbar^2}{2mL^2} + \frac{a}{L} \quad , \quad n_1 \neq n_2 . $$
+
+atau berdasarkan a.) , $\displaystyle E \approx \frac{(n_1^2+n_2^2)\pi^2\hbar^2}{2mL^2} + \frac{3a}{2L} \quad , \quad n_1=n_2 $
+
+
+
+    <h2>Soal nomor 4</h2>
+
+    <p>Diketahui komponen momentum sudut $L$ berbentuk:
+$$ L_x = yp_z - zp_y \quad , \quad L_y = zp_x - xp_z \quad , \quad \text{dan} \quad L_z = xp_y - yp_x $$
+dengan: $x, y \text{ dan } z$ : koordinat posisi, $p$ : momentum linier. Tentukan: </p>
+
+    <ol type="a">
+        <li>$[y, p_y]$ dan $[y, p_z]$</li>
+        <li>relasi komutasi komponen momentum sudut $[L_x, L_y]$ sebagai fungsi $L_z$</li>
+        <li>$[L_y, [L_x, L_y]]$ dinyatakan dalam $L_x$</li>
+    </ol>
+
+
+    <p><b>Jawaban:</b></p>
+
+    Operator posisi dan momentum linear diketahui memiliki ungkapan
+$$ \hat{x} = x \quad , \quad \hat{y} = y \quad , \quad \hat{z} = z \quad \text{dan} \quad \hat{p}_x = -i\hbar\frac{\partial}{\partial x} \quad , \quad \hat{p}_y = -i\hbar\frac{\partial}{\partial y} \quad , \quad \hat{p}_z = -i\hbar\frac{\partial}{\partial z} . $$
+
+Sedangkan, definisi dari komutator diberikan oleh \quad $[\hat{A}, \hat{B}] = \hat{A}\hat{B} - \hat{B}\hat{A}$.
+
+
+
+    <p>a. Untuk menghitung $[\hat{y}, \hat{p}_y]$ agar tidak terjebak dengan komutasi masing-masing operator, dimisalkan operator $[\hat{y}, \hat{p}_y]$ dikenakan pada suatu fungsi $\psi = \psi(x, y, z)$.
+
+\begin{align*}
+[\hat{y}, \hat{p}_y]\psi = (\hat{y}\hat{p}_y - \hat{p}_y\hat{y})\psi &= \left( y\left(-i\hbar\frac{\partial}{\partial y}\right) + i\hbar\frac{\partial}{\partial y}y \right)\psi \\
+&= -i\hbar y \frac{\partial \psi}{\partial y} + i\hbar \frac{\partial}{\partial y}(y\psi) \\
+&= -i\hbar y \frac{\partial \psi}{\partial y} + i\hbar\left( \psi \frac{\partial y}{\partial y} + y \frac{\partial \psi}{\partial y} \right)
+\end{align*}
+
+$$ [\hat{y}, \hat{p}_y]\psi = -i\hbar y \frac{\partial \psi}{\partial y} + i\hbar\psi + i\hbar y \frac{\partial \psi}{\partial y} = i\hbar\psi $$
+
+maka $[\hat{y}, \hat{p}_y] = i\hbar$.</p>
+
+
+
+    <p>Hal yang sama juga dilakukan untuk $[\hat{y}, \hat{p}_z]$
+
+\begin{align*}
+[\hat{y}, \hat{p}_z]\psi = (\hat{y}\hat{p}_z - \hat{p}_z\hat{y})\psi &= \left( -y i\hbar\frac{\partial}{\partial z} + i\hbar\frac{\partial}{\partial z}y \right)\psi \\
+&= -y i\hbar \frac{\partial \psi}{\partial z} + i\hbar \frac{\partial}{\partial z}(y\psi) \\
+&= -y i\hbar \frac{\partial \psi}{\partial z} + i\hbar\left( \cancelto{0}{\psi \frac{\partial y}{\partial z}} + y \frac{\partial \psi}{\partial z} \right) = -i\hbar y \frac{\partial \psi}{\partial z} + i\hbar y \frac{\partial \psi}{\partial z} \\
+&= 0
+\end{align*}
+
+maka $[\hat{y}, \hat{p}_z] = 0$.</p>
+<br>
+
+    <p>b. Relasi $[\hat{L}_x, \hat{L}_y]$ memenuhi $[\hat{y}\hat{p}_z - \hat{z}\hat{p}_y, \hat{z}\hat{p}_x - \hat{x}\hat{p}_z]$. Jika dihitung:
+
+\begin{align*}
+[\hat{L}_x, \hat{L}_y] &= (\hat{y}\hat{p}_z - \hat{z}\hat{p}_y)(\hat{z}\hat{p}_x - \hat{x}\hat{p}_z) - (\hat{z}\hat{p}_x - \hat{x}\hat{p}_z)(\hat{y}\hat{p}_z - \hat{z}\hat{p}_y) \\
+&= \hat{y}\hat{p}_z\hat{z}\hat{p}_x - \hat{y}\hat{p}_z\hat{x}\hat{p}_z - \hat{z}\hat{p}_y\hat{z}\hat{p}_x + \hat{z}\hat{p}_y\hat{x}\hat{p}_z - (\hat{z}\hat{p}_x\hat{y}\hat{p}_z - \hat{z}\hat{p}_x\hat{z}\hat{p}_y - \hat{x}\hat{p}_z\hat{y}\hat{p}_z + \hat{x}\hat{p}_z\hat{z}\hat{p}_y) \\
+&= \hat{y}\hat{p}_z\hat{z}\hat{p}_x - \hat{y}\hat{p}_z\hat{x}\hat{p}_z - \hat{z}\hat{p}_y\hat{z}\hat{p}_x + \hat{z}\hat{p}_y\hat{x}\hat{p}_z - \hat{z}\hat{p}_x\hat{y}\hat{p}_z + \hat{z}\hat{p}_x\hat{z}\hat{p}_y + \hat{x}\hat{p}_z\hat{y}\hat{p}_z - \hat{x}\hat{p}_z\hat{z}\hat{p}_y
+\end{align*}</p>
+
+
+    <p>Dari a.) terlihat pola $\displaystyle [\hat{r}_i, \hat{p}_j] = \begin{cases} 0 & , \quad i \neq j \\ i\hbar & , \quad i=j \end{cases} \quad$, maka $\hat{r}_i \hat{p}_j = \hat{p}_j \hat{r}_i$ untuk $i \neq j$
+
+\begin{align*}
+\hspace{1.5cm} &= \hat{y}\hat{p}_z\hat{z}\hat{p}_x - \hat{y}\textcolor{teal}{\hat{x}}\hat{p}_z^2 - \hat{z}\hat{p}_y\hat{z}\hat{p}_x + \hat{z}\hat{p}_y\hat{x}\hat{p}_z - \hat{z}\hat{p}_x\hat{y}\hat{p}_z + \hat{z}\hat{p}_x\hat{z}\hat{p}_y + \hat{x}\textcolor{teal}{\hat{y}}\hat{p}_z^2 - \hat{x}\hat{p}_z\hat{z}\hat{p}_y
+\end{align*}</p>
+
+    <p>diketahui $[\hat{r}_i, \hat{r}_j] = 0 \quad$, yang membuat $\hat{r}_i \hat{r}_j = \hat{r}_j \hat{r}_i$</p>
+
+    <p>diketahui $[\hat{p}_i, \hat{p}_j] = 0 \quad$, yang membuat $\hat{p}_i \hat{p}_j = \hat{p}_j \hat{p}_i$ (bisa dibuktikan dengan cara seperti a.)
+        \begin{align*}
+\hspace{1.5cm} &= \hat{y}\hat{p}_z\hat{z}\hat{p}_x - \cancel{\textcolor{teal}{\hat{x}}\hat{y}\hat{p}_z^2} - \hat{z}^2\textcolor{teal}{\hat{p}_y}\hat{p}_x + \hat{z}\hat{p}_y\hat{x}\hat{p}_z - \hat{z}\hat{p}_x\hat{y}\hat{p}_z + \hat{z}^2\textcolor{teal}{\hat{p}_y}\hat{p}_x + \cancel{\textcolor{teal}{\hat{x}}\hat{y}\hat{p}_z^2} - \hat{x}\hat{p}_z\hat{z}\hat{p}_y \\
+&= \hat{y}\hat{p}_z\hat{z}\hat{p}_x - \cancel{\hat{z}^2\textcolor{teal}{\hat{p}_y}\hat{p}_x} + \hat{z}\hat{p}_y\hat{x}\hat{p}_z - \hat{z}\hat{p}_x\hat{y}\hat{p}_z + \cancel{\hat{z}^2\textcolor{teal}{\hat{p}_y}\hat{p}_x} - \hat{x}\hat{p}_z\hat{z}\hat{p}_y \\
+&= \hat{y}\hat{p}_z\hat{z}\hat{p}_x + \hat{z}\hat{p}_y\hat{x}\hat{p}_z - \hat{z}\hat{p}_x\hat{y}\hat{p}_z - \hat{x}\hat{p}_z\hat{z}\hat{p}_y
+\end{align*}
+    </p>
+
+        <p></p>Selanjutnya, diketahui pula \quad $\hat{r}_j \hat{p}_j = i\hbar + \hat{p}_j \hat{r}_j \quad$ dan $\quad \hat{p}_j \hat{r}_j = \hat{r}_j \hat{p}_j - i\hbar$
+\begin{align*}
+\hspace{1.5cm} &= \hat{y}\textcolor{teal}{(\hat{z}\hat{p}_z - i\hbar)}\hat{p}_x + \hat{z}\hat{p}_y\hat{x}\hat{p}_z - \hat{z}\hat{p}_x\hat{y}\hat{p}_z - \hat{x}\textcolor{teal}{(\hat{z}\hat{p}_z - i\hbar)}\hat{p}_y \\
+\hspace{1.5cm} &= \hat{y}\hat{z}\hat{p}_z\hat{p}_x - i\hbar\hat{y}\hat{p}_x + \hat{z}\hat{p}_y\hat{x}\hat{p}_z - \hat{z}\hat{p}_x\hat{y}\hat{p}_z - \hat{x}\hat{z}\hat{p}_z\hat{p}_y + i\hbar\hat{x}\hat{p}_y \\
+&= \hat{y}\hat{z}\hat{p}_z\hat{p}_x - i\hbar\hat{y}\hat{p}_x + \hat{z}\textcolor{teal}{\hat{x}}\hat{p}_y\hat{p}_z - \hat{z}\textcolor{teal}{\hat{y}}\hat{p}_x\hat{p}_z - \hat{x}\hat{z}\hat{p}_z\hat{p}_y + i\hbar\hat{x}\hat{p}_y \\
+&= \hat{y}\hat{z}\hat{p}_z\hat{p}_x - i\hbar\hat{y}\hat{p}_x + \textcolor{teal}{\hat{x}}\hat{z}\hat{p}_y\hat{p}_z - \textcolor{teal}{\hat{y}}\hat{z}\hat{p}_x\hat{p}_z - \hat{x}\hat{z}\hat{p}_z\hat{p}_y + i\hbar\hat{x}\hat{p}_y \\
+&= \cancel{\hat{y}\hat{z}\hat{p}_z\hat{p}_x} - i\hbar\hat{y}\hat{p}_x + \cancel{\hat{x}\hat{z}\hat{p}_z\hat{p}_y} - \cancel{\hat{y}\hat{z}\hat{p}_z\hat{p}_x} - \cancel{\hat{x}\hat{z}\hat{p}_z\hat{p}_y} + i\hbar\hat{x}\hat{p}_y \\
+&= i\hbar(\hat{x}\hat{p}_y - \hat{y}\hat{p}_x) = i\hbar\hat{L}_z
+\end{align*}</p>
+<br>
+
+
+    <p>c. Memanfaatkan hasil b.), ungkapan $[\hat{L}_y, [\hat{L}_x, \hat{L}_y]]$ akan sama dengan
+
+$$ [\hat{L}_y, i\hbar\hat{L}_z] = i\hbar[\hat{L}_y, \hat{L}_z] $$</p>
+
+    <p>Menurut pola b.), komutator $[\hat{L}_i, \hat{L}_j]$ akan memiliki kaitan $i\hbar \epsilon_{ijk} \hat{L}_k$, dengan 
+$$ \epsilon_{ijk} = \begin{cases} 
+1 & , \quad (i,j,k) = (x,y,z) = (y,z,x) = (z,x,y) \\ 
+-1 & , \quad (i,j,k) = (z,y,x) = (y,x,z) = (x,z,y) \\ 
+0 & , \quad \text{lainnya} 
+\end{cases} $$
+
+sehingga 
+\begin{align*}
+[\hat{L}_y, [\hat{L}_x, \hat{L}_y]] &= i\hbar(i\hbar\hat{L}_x) \\
+&= -\hbar^2\hat{L}_x.
+\end{align*}</p>
+
+    <p></p>
+
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+</main>
+
+
+    <footer>
+        <p>&copy; 2026 Raihan Fadhel. Powered by Gemini. Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.</p>
+    </footer>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'id', // Menandai bahwa bahasa asli web ini adalah Indonesia
+                includedLanguages: 'id,en', // Membatasi opsi dropdown HANYA untuk Indonesia dan Inggris
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+        const themeBtn = document.getElementById('theme-btn');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        if (currentTheme === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            themeBtn.innerHTML = '☀️ Light Mode';
+        }
+
+        themeBtn.addEventListener('click', () => {
+            if (document.body.getAttribute('data-theme') === 'dark') {
+                document.body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeBtn.innerHTML = '🌙 Dark Mode';
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeBtn.innerHTML = '☀️ Light Mode';
+            }
+        });
+    </script>
+
+</body>
+</html>

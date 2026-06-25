@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raihan Fadhel | Blog</title>
+    <style>
+        /* --- SKEMA WARNA & VARIABEL --- */
+        :root {
+            --bg-color: #f7ede2; 
+            --text-color: #3d3124;
+            --link-color: #a67c52;
+            --header-bg: #eaddcb;
+            --border-color: #d4c2ab;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #251e16; 
+            --text-color: #f2e6d8;
+            --link-color: #dcb38a;
+            --header-bg: #1c1610;
+            --border-color: #4a3c2d;
+        }
+
+        p {text-align: justify;}
+
+        /* --- STYLING DASAR --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            
+            /* Mencegah Google Translate menggeser halaman ke bawah */
+            top: 0 !important; 
+        }
+
+        /* Menyembunyikan banner atas Google Translate yang muncul otomatis */
+        .VIpgJd-ZVi9od-ORHb-OEVmcd { display: none !important; }
+        .goog-te-banner-frame { display: none !important; }
+
+        /* --- HEADER & NAVIGASI --- */
+        header {
+            background-color: var(--header-bg);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--link-color);
+            text-decoration: underline;
+            text-underline-offset: 5px;
+        }
+
+        /* --- TOMBOL AKSI & WIDGET TRANSLATE --- */
+        .action-btns {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--border-color);
+        }
+
+        /* Modifikasi Dropdown Google Translate agar senada dengan desain elegan */
+        #google_translate_element select {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* Menyembunyikan teks 'Powered by Google' */
+        .goog-logo-link, .goog-te-gadget span {
+            display: none !important;
+        }
+        .goog-te-gadget {
+            color: transparent !important;
+            font-size: 0;
+        }
+
+        /* --- KONTEN UTAMA --- */
+        main {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        h2, h3 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 1rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+            opacity: 0.8;
+        }
+
+        .date {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        .gambar-tengah {
+    display: block;
+    margin: 2rem auto; /* Memberi jarak atas-bawah dan memposisikan gambar di tengah */
+    max-width: 100%; /* Memastikan gambar tidak melebihi lebar layar */
+    width: 400px; /* Kamu bisa mengubah angka ini untuk memperbesar/memperkecil gambar */
+    border-radius: 8px; /* Opsional: Membuat sudut gambar menjadi sedikit membulat/tidak lancip */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Opsional: Memberi efek bayangan tipis agar elegan */
+}
+
+        .blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.blog-card {
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    color: inherit; /* Mengikuti warna teks tema */
+    display: block;
+}
+
+.blog-card:hover {
+    background-color: var(--header-bg);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transform: translateY(-2px); /* Efek sedikit terangkat saat disentuh kursor */
+}
+
+.blog-card h3 {
+    margin-top: 0;
+    border-bottom: none;
+    margin-bottom: 0.5rem;
+    color: var(--link-color);
+}
+
+.blog-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--link-color);
+}
+    </style>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+</head>
+<body>
+
+    <header>
+        <h1>Raihan Fadhel</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="projects.html">Projects</a>
+            <a href="blog.html" class="active">Blog</a>
+            
+            <div class="action-btns">
+                <div id="google_translate_element"></div>
+                
+                <button class="btn" id="theme-btn">🌙 Dark Mode</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+    <a href="blog.html" style="display: inline-block; margin-bottom: 2rem; font-size: 0.9rem;">
+        &larr; Return to the blog lists
+    </a>
+
+    <h2 style="border-bottom: none; margin-top: 0; padding-bottom: 0;">Penyelesaian Sistem Osilator Harmonik Kuantum Satu Dimensi dengan Cara Aljabar</h2>
+    <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0;">Originally published on November 7th, 2023.</p>
+
+    <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 2rem 0;">
+
+    <p><b>DISCLAIMER: MENGANDUNG KONTEN 18+, TIDAK DISARANKAN UNTUK ANAK DI BAWAH UMUR. (Tulisan ini juga lumayan panjang. Jadi bisa siapin dulu minum sama makanannya, ya)</b></p>
+
+    <p>Apa sih sistem osilator harmonik satu dimensi itu? Ini sebenarnya cuma nama keren buat "sistem pegas dan massa yang berosilasi di sepanjang sumbu-$x$". Kalo itu masih kedengeran "keren" buat suatu istilah keren, yaa... sistem pegas massa pada dasarnya adalah suatu pegas yang dikasih beban, ditariik, dan dibiarkan bergerak maju-mundur dengan periode tertentu.</p>
+    
+    <figure>
+    <img src="images/osilatorklasik.png" alt="images/osilatorklasik" class="gambar-tengah">
+    
+    <figcaption style="text-align: center; font-size: 0.85rem; opacity: 0.8; margin-top: 0.5rem;">
+        Ilustrasi Osilator Harmonik Sederhana (Sumber: goseeko.com)
+    </figcaption></figure>
+
+    <p>Secara klasik, sistem osilator harmonik ini memenuhi hukum Hooke. Jika ada suatu pegas dengan konstanta $k$, dikaitkan dengan suatu beban bermassa $m$, maka akan memenuhi persamaan gerak sebagai berikut:</p>
+
+    $$F = m \frac{d^2 x}{dt^2} = -kx$$
+
+    <p>Bentuk persamaan diferensial orde dua ini pasti akan selalu memiliki solusi umum berupa $x(t) = A \sin (\omega t) + B \cos (\omega t)$, dengan $\omega = \sqrt{\frac{k}{m}}$ merupakan frekuensi sudut dari sistem osilator harmonik satu dimensi tersebut. Sedangkan, tenaga potensial $V$ dari sistem ini diberikan oleh hubungan $F = - \nabla V$ dan apabila satu dimensi, maka bentuk potensialnya adalah:</p>
+
+    $$ V = - \int_0^x F dx = \frac{1}{2} kx^2 $$
+
+    <p>Kita bisa menentukan bahwa tenaga total $E$ dari sistem osilator harmonik kuantum diberikan oleh jumlahan antara tenaga kinetik $T=\frac{1}{2}mv^2$ dan potensial pegas $V$. Mengingat bahwa momentum linear $p=mv$, maka tenaga kinetik bisa ditulis ulang menjadi $T= \frac{p^2}{2m}$, sehingga:</p>
+
+    <p>$$ E = \frac{p^2}{2m} + \frac{1}{2} kx^2$$</p>
+
+    <p>Lalu, bagaimana kita membawa sistem osilator harmonik ini ke dalam ranah kuantum? Gampang saja, dengan mengingat postulat mekanika kuantum bahwa observabel (besaran yang diukur) klasik dapat diwakilkan oleh operator yang hermitean, maka kita bisa mengganti tenaga total $E$ menjadi suatu operator Hamiltonian $\hat{H}$, momentum linear $p$ menjadi operator $\hat{p}$, dan posisi menjadi $\hat{x}$. Dalam mekanika kuantum kita tidak perlu konstanta pegas $k$. Konstanta pegas ini dapat ditulis ulang menjadi $k=m\omega^2$. Jadi:</p>
+
+    $$E \rightarrow \hat{H} =  \frac{\hat{p}^2}{2m} + \frac{1}{2} m\omega^2 \hat{x}^2$$
+
+    <p>Jika dianggap keadaan dari partikel di dalam suatu sistem osilator harmonik kuantum satu dimensi ini diwakilkan oleh fungsi gelombang $\psi$ yang tidak berubah sepanjang waktu (hanya bergantung pada posisi), maka sistem akan memenuhi persamaan Schroedinger tidak gayut waktu, yang berupa persamaan nilai eigen $\hat{H}\psi = E \psi$, atau jika dengan mengganti operator momentum linear menjadi $\hat{p}=-i\hbar \frac{d}{dx}$ dan operator posisi $\hat{x}= x$, persamaan nilai eigen tersebut menjadi:</p>
+
+    <p>$$ -\frac{\hbar^2}{2m} \frac{d^2 \psi }{dx^2} + \frac{1}{2} m\omega^2 x^2 \psi = E \psi $$</p>
+
+    <p>Lagi-lagi kita ketemu sama persamaan diferensial orde dua. Sebenarnya, kita dapat menentukan solusi bagi $\psi$ dengan menyelesaikan persamaan diferensial dan menentukan tenaga dari partikel tersebut dengan metode deret (spoiler : solusi fungsi gelombang ini akan mengandung polinomial Hermite) atau di sini kita sebut sebagai cara brute force wkwkwk. Tapi, kita di sini bisa juga menyelesaikannya dengan cara lain, yaitu dengan metode aljabar. Kenapa metode aljabar? Katanya sih, lebih simpel dan seru aja gitu.</p>
+
+    <p><b>Masuk ke metode Aljabar</b></p>
+
+    <p>Dimulai dengan menuliskan ulang persamaan Schroedinger di atas menjadi </p>
+    $$\frac{1}{2m} \left[ \hat{p}^2 +  (m\omega \hat{x})^2 \right] \psi = E \psi$$
+
+    <p>Mungkin, karena persamaan di dalam kurung menjadi bentuk $[a^2 + b^2]$, kita bakalan tergoda untuk mengubah persamaan tersebut menjadi $a^2 + b^2 = (a + ib)(a - ib)$. TAPI HATI-HATI! (maaf ngegas). Kita bisa mengubah ungkapan $a^2 + b^2$ menjadi $(a + ib)(a - ib)$ dengan anggapan bahwa $ab = ba$. Sayangnya, di sini kita melibatkan operator $\hat{p}$ dan $\hat{x}$ yang belum terjamin saling komutatif seperti angka biasa. Coba kita cek apakah $\hat{p}\hat{x} = \hat{x}\hat{p}$?.</p>
+
+    <p>Di sini, aku menggunakan ungkapan komutator yang didefinisikan sebagai $[\hat{x}, \hat{p}] = \hat{x}\hat{p} - \hat{p}\hat{x}$. Jika operator posisi dan momentum saling komutatif, maka hasil komutator adalah nol. Caranya gimana? Nah, ini lumayan menjebak. Kita engga bisa sembarangan langsung mengurangkan hasil dari  $\hat{x}\hat{p} - \hat{p}\hat{x}$. Untuk menghitung komutator dari suatu operator, kita perlu memberikan fungsi yang harus dikenakan pada komutator tersebut. Anggap fungsi tersebut adalah $\psi= \psi (x)$. Berarti:</p>
+
+    \begin{align} [\hat{x},\hat{p}] \psi &= (\hat{x}\hat{p} - \hat{p}\hat{x}) \psi \\ &= \left(x i\hbar \frac{d}{dx} - i\hbar \frac{d}{dx} x \right) \psi \\ &= x i\hbar \frac{d \psi}{dx} - i\hbar \frac{d (x \psi)}{dx} \\ &= i \hbar \left( x \frac{d \psi}{dx} - x \frac{d \psi}{dx} - \psi \frac{d(x)}{dx} \right) \\ &= i \hbar \psi  \end{align}
+
+    <p>Dari perhitungan di atas, kita dapat memperoleh bahwa $[\hat{x},\hat{p}] = i\hbar$, dan ini menandakan bahwa $\hat{p}\hat{x} \ne \hat{x}\hat{p}$. Terus persamaan Schroedinger di atas kita apakan dong? Apa ditinggal gitu aja? Kan ternyata perkalian operator momentum linear dengan operator posisi engga komutatif :(</p>
+
+    <p>Eits, tunggu dulu.. Masalah ini masih bisa diakalin dengan memperkenalkan operator baru yang bentuknya kayak di bawah ini:</p>
+    $$ \hat{a}_{\pm} = \frac{1}{\sqrt{2\hbar m \omega}} \left( \mp i \hat{p} + m \omega \hat{x} \right) $$
+
+    <p>(Pasti dari kalian bakal bertanya-tanya.. Ini kenapa ada operator baru yang disimbolin + sama -, dan kenapa harus ada $\frac{1}{\sqrt{2\hbar m \omega}}$ di depan? Sabar... Pertanyaan kalian akan terjawab setelah pesan-pesan berikut ini.)
+</p>
+
+    <p>Oke, sekarang kita coba lihat apa jadinya kalo $\hat{a}_-$ dan $\hat{a}_+$ saling dikalikan:</p>
+    \begin{align} \hat{a}_- \hat{a}_+ &= \frac{1}{2\hbar m \omega} (i \hat{p} + m \omega \hat{x})(-i \hat{p} + m \omega \hat{x}) \\ &=  \frac{1}{2\hbar m \omega} ( \hat{p}^2 - i m\omega( \hat{x} \hat{p} - \hat{p}\hat{x}) + m^2 \omega^2 \hat{x}^2) \end{align}
+
+    <p>Karena sebelumnya kita peroleh bahwa $\hat{x} \hat{p} - \hat{p}\hat{x} = i\hbar$, berarti:</p>
+
+    <p>\begin{align} \hat{a}_- \hat{a}_+ &=  \frac{1}{2\hbar m \omega} ( \hat{p}^2 + \hbar m \omega + m^2 \omega^2 \hat{x}^2) \\ &= \frac{1}{\hbar \omega} \left( \frac{\hat{p}^2}{2m} + \frac{1}{2} m \omega^2 \hat{x}^2 \right) + \frac{1}{2}  \\ &= \frac{\hat{H}}{\hbar \omega} + \frac{1}{2}  \end{align}</p>
+
+    <p>Nah, udah kejawab kenapa ada faktor $\frac{1}{\sqrt{2\hbar m \omega}}$ di masing-masing operator. Sebenarnya, tujuannya ya cuma bikin hasil operasi perhitungannya jadi cantik aja. Hal sama juga dapat dilakukan untuk menghitung $\hat{a}_+ \hat{a}_-$ dan akan menghasilkan:</p>
+    $$ \hat{a}_+ \hat{a}_- = \frac{\hat{H}}{\hbar \omega} - \frac{1}{2}$$
+
+    <p>Maka, dari sini kita simpulkan bahwa operator $\hat{a}_-$ dan $\hat{a}_+$ memiliki nilai komutator $[\hat{a}_- , \hat{a}_+] = \hat{a}_- \hat{a}_+ - \hat{a}_+ \hat{a}_- = 1$. Nilai 1 di sini kita tuliskan sebagai operator identitas $\hat{I}$ yang berlaku persamaan nilai eigen $\hat{I} \psi = \psi$. Sementara, operator hamiltonian bisa juga kita tulis jadi:</p>
+    $$ \hat{H} = \hbar \omega \left( \hat{a}_{\pm} \hat{a}_{\mp} \pm \frac{1}{2} \right) $$
+
+    <p>Berarti, persamaan nilai eigen yang $\hat{H}\psi = E \psi$ juga bisa diungkapin dalam bentuk:</p>
+    $$ \hbar \omega \left( \hat{a}_{\pm} \hat{a}_{\mp} \pm \frac{1}{2} \right) \psi = E \psi $$
+
+    <p>Muncul pertanyaan lagi, terus kenapa? Perasaan dari tadi kaya gaada hal yang bisa kita dapetin. Mana penyelesaian persamaan Schroedinger yang udah dijanjiin di caption? TUNGGU DULU, JANGAN LEAVE DULU! Nah, mulailah kita coba periksa, sebenarnya se-istimewa apa sih operator $\hat{a}_{\pm}$ yang udah dikenalin itu?</p>
+
+    <p><b>Tinjauan lebih detail mengenai sifat operator $\hat{a}_{\pm}$ mulai dari sini.</b></p>
+
+    <p>Apa yang bakal terjadi kalau aku kenain operator $\hat{a}_+$ ke fungsi gelombang osilator harmonik $\psi$ yang memenuhi persamaan nilai eigen tadi? Kan tadi kita tau bahwa operator Hamiltonian bakalan punya nilai eigen berupa total tenaga sistem osilator harmonik $E$. Nah sekarang, coba kita lihat kasus ketika ruas kiri jadi $\hat{H} (\hat{a}_+ \psi)$. Kira-kira, ada pengaruhnya sama energi totalnya ga yaa?? (Hati-hati, karena operator $\hat{a}_{\pm}$ tidak saling komutatif, perlu diperhatikan bener-bener terkait proses perkaliannya ketika ketemu operator lain dari kiri atau kanan. Jangan sampai terbalik. Kalo ketemunya sama nilai biasa sih gapapa.)</p>
+    \begin{align} \hat{H} (\hat{a}_+ \psi) &= \hbar \omega \left( \hat{a}_{+} \hat{a}_{-} + \frac{1}{2} \right) \hat{a}_+ \psi \\ &=  \hbar \omega \left( \hat{a}_{+} \hat{a}_{-} \hat{a}_+ + \frac{\hat{a}_+}{2} \right) \psi \\ &=\hbar \omega \hat{a}_+ \left( \hat{a}_{-} \hat{a}_+ + \frac{1}{2} \right) \psi \end{align}
+
+    <p>Dari hubungan komutator, kita bisa tulis ulang $\hat{a}_{-} \hat{a}_+ = \hat{I} + \hat{a}_{+} \hat{a}_-$, akibatnya:</p>
+    \begin{align} \hat{H} (\hat{a}_+ \psi) &= \hbar \omega \hat{a}_+ \left( \hat{I} + \hat{a}_{+} \hat{a}_{-} + \frac{1}{2} \right) \psi \\ &= \hat{a}_+ \left( \hbar \omega \hat{I} + \hbar \omega \left( \hat{a}_{+} \hat{a}_{-} + \frac{1}{2} \right) \right) \psi \\ &= \hat{a}_+ \left( \hbar \omega \hat{I} + \hat{H} \right) \psi \\ &= \hat{a}_+ \left( \hbar \omega \hat{I}\psi  + \hat{H} \psi \right) \\ &= \hat{a}_+ \left( \hbar \omega \psi  + E \psi  \right) \\ &= ( \hbar \omega + E) (\hat{a}_+ \psi)   \end{align}
+
+    <p>Whoa...whoaaa... Tunggu dulu... Jadi, ketika kita kenakan operator $\hat{a}_+$ pada fungsi gelombang $\psi$, total tenaga sistem jadi bertambah sebesar $\hbar \omega$??? Hmm.. menarik nih! Terus gimana kalau sekarang gantian kita kenakan operator $\hat{a}_-$ sehingga ruas kiri persamaan nilai eigen awal menjadi $\hat{H} (\hat{a}_- \psi)$? Ternyata, dengan cara yang sama (bisa dibuktikan sendiri), total tenaga sistem jadi berkurang sebesar  $\hbar \omega$, karena ketemu nilai eigennya adalah  $E - \hbar \omega$. Okeee.. jadi ketemu kan alasan kenapa operator $\hat{a}$ dikasi indeks + dan -. Hal ini dikarenakan ketika mengenai operator dengan indeks +, maka tenaga sistem akan bertambah, dan sebaliknya. Karena operator $\hat{a}_{\pm}$ ini bisa berfungsi untuk menaikkan dan menurunkan total tenaga sistem, maka operator ini kita juluki sebagai operator tangga/ladder operator. </p>
+
+    <p>Selanjutnya, pasti ada pikiran, kalo kita kenain operator tangga + ke fungsi gelombang kan energinya naik terus tuh. Lah, berarti kalo fungsi gelombangnya dikenain operator tangga - terus, energinya juga turun terus sampe mines dong?. Jawabannya enggak. Karena, pada suatu saat di sistem osilator harmonik kuantum ini, kita bakalan ketemu sama keadaan dasar atau ground state dari partikel itu dengan fungsi gelombang $\psi_0$. Maknanya, partikel pada keadaan ini memiliki energi paling rendah yang mungkin. Terus, gimana ketika kita kenain operator tangga - ke $\psi_0$? Pada kasus ini, akan berlaku $\hat{a}_- \psi_0 = 0$. Dari fakta ini, kita bisa loh dengan gampang cari bentuk eksplisit fungsi gelombang osilator harmonik pada keadaan dasar, yaitu $\psi_0$! Mari kita hitung.. Pake definisi dari operator tangga - di awal tadi, kita bisa peroleh:</p>
+    \begin{align} \frac{1}{\sqrt{2\hbar m \omega}} \left( i \hat{p} + m \omega \hat{x} \right) \psi_0 &= 0 \\ \left( \hbar \frac{d}{dx} + m \omega x \right) \psi_0 &= 0 \\  \frac{d \psi_0}{dx} &= - \frac{m \omega x}{\hbar} \psi_0 \\ \frac{d \psi_0}{\psi_0} &= - \frac{m \omega}{\hbar}x dx \\  \int \frac{d \psi_0}{\psi_0} &= - \frac{m \omega}{\hbar} \int x dx \\ \ln \psi_0 &= - \frac{m \omega}{2\hbar} x^2 + C \\ \psi_0 &= A_0 e^{ - \frac{m \omega}{2\hbar} x^2 }  \end{align}
+
+    <p>Diperoleh fungsi gelombang yang belum ternormalisasi untuk ground state-nya. Cara untuk nyari konstanta $A_0$ berarti kita perlu menormalisasi fungsi gelombang, yaitu menjamin bahwa untuk semua wilayah ( dari $x= - \infty$ ke $x = \infty$  berlaku $\int_{-\infty}^{\infty} \psi_0^* \psi_0 \; dx = 1$ ). Long story short, dengan memanfaatkan fungsi gamma untuk membantu proses pengintegralan, diperoleh bahwa $A_0 = \left( \frac{m \omega}{\pi \hbar} \right)^{1/4}$. Kita dapatkan solusi dari fungsi gelombang pada keadaan dasarnya yaitu:</p>
+    $$\psi_0 = \left( \frac{m \omega}{\pi \hbar} \right)^{1/4} e^{ - \frac{m \omega}{2\hbar} x^2 } $$
+
+    <p>Karena kita udah punya bentuk eksplisit dari $\psi_0$, dengan melakukan perhitungan nilai eigen $\hat{H} \psi_0 = E_0 \psi_0$ diperoleh bahwa tenaga keadaan dasar dari sistem osilator harmonik kuantum adalah:</p>
+    $$ E_0 = \frac{1}{2} \hbar \omega$$
+
+    <p>Karena kita tadi udah lihat bahwa dengan mengenakan operator tangga + sebanyak sekali pada fungsi gelombang akan mengakibatkan tenaga total bertambah sebesar $\hbar \omega$, maka bisa disimpulkan juga untuk sebarang keadaan sistem osilator harmonik, berlaku fungsi gelombang keadaan ke-n ($\psi_n$) dan tenaga totalnya ($E_n$) adalah sebagai berikut:</p>
+    $$ \psi_n = A_n (\hat{a}_+)^n \psi_0 \; \; \; \; \text{dan} \; \; \; \; E_n = \left( n + \frac{1}{2} \right) \hbar \omega $$
+
+    <p>Akhirnya, dari sini kita berhasil mencari solusi bagi fungsi gelombang osilator harmonik sekaligus dengan bentuk tingkat tenaganya!!! Terus, apalagi? Kita tahu bahwa $\hat{a}_+ \psi_n$ akan mengakibatkan fungsi gelombang naik satu tingkat (karena tadi energinya nambah) jadi $\psi_{n+1}$ dan begitu pula untuk $\hat{a}_- \psi_n$ akan mengakibatkan fungsi gelombang turun satu tingkat jadi $\psi_{n-1}$ dengan suatu faktor $C_n$ dan $D_n$:</p>
+    $$  \hat{a}_+ \psi_n = C_n \psi_{n+1} \; \; \; \; \; \text{dan} \; \; \; \; \; \hat{a}_- \psi_n = D_n \psi_{n-1}$$
+
+    <p>Kita bakal coba cari nilai faktor ini. Tapi coba kita lihat dulu bentuk konjugat Hermit dari masing-masing operator tangga ini. Didefinisikan bahwa $(\hat{a}_-)^{\dagger} = \left( \frac{1}{\sqrt{2\hbar m \omega}} ( i \hat{p} + m \omega \hat{x} ) \right)^{\dagger} = \frac{1}{\sqrt{2\hbar m \omega}}(-i \hat{p}^{\dagger} + m \omega \hat{x}^{\dagger})$. Karena masing-masing operator posisi dan momentum linear bersifat hermitean ($\hat{p}^{\dagger} = \hat{p}$ dan $ \hat{x}^{\dagger} = \hat{x}$), bisa disimpulkan bahwa $(\hat{a}_-)^{\dagger} = \hat{a}_+$ atau sebaliknya, $(\hat{a}_+)^{\dagger} = \hat{a}_-$.</p>
+
+    <p>Selanjutnya, proses pencarian faktor $C_n$ dan $D_n$ bakalan pakai notasi Dirac (karena aku males nulis integral wkwkwk). Terlebih dahulu diingat bahwa $\langle n | \hat{O} m \rangle = \langle \hat{O}^{\dagger} n | m \rangle$ dan untuk sebarang keadaan fungsi gelombang osilator harmonik berlaku kaitan ortonormal $ \langle n | m \rangle = \delta_{nm} $. Selanjutnya ditinjau untuk fungsi gelombang keadaan ke-$n$:</p>
+    \begin{align} \langle n | \hat{a}_-\hat{a}_+ n \rangle &=  \langle (\hat{a}_-)^{\dagger} n | \hat{a}_+ n \rangle \\ &= \langle \hat{a}_+ n | \hat{a}_+ n \rangle  \\ &= \langle C_n^* \; n+1 | C_n \; n+1 \rangle \\ &= |C_n|^2 \langle  n+1 |  n+1 \rangle \\ &= |C_n|^2 \end{align}
+
+    <p>Melalui definisi yang kita dapatkan sebelumnya, juga bisa kita peroleh:</p>
+    \begin{align} \langle n | \hat{a}_-\hat{a}_+ n \rangle &=  \langle  n | (\hat{a}_+\hat{a}_- +\hat{I}) n \rangle \\ &= \left\langle n | \left( \frac{\hat{H}}{\hbar \omega} - \frac{1}{2} +\hat{I} \right) n \right\rangle  \\ &= \frac{1}{\hbar \omega} \langle n | \hat{H} n \rangle - \frac{1}{2} \langle n | n \rangle + \langle n | \hat{I} n \rangle \\ &= \frac{1}{\hbar \omega} \langle n | E_n n  \rangle - \frac{1}{2} \langle n | n \rangle + \langle n |  n \rangle \\ &=  \left(n + \frac{1}{2} - \frac{1}{2} + 1 \right) \langle n | n  \rangle \\ &= (n+1)  \end{align}
+
+    <p>Okee, jadi kita peroleh bahwa $|C_n|^2 = n+1$ atau $C_n = \sqrt{n+1}$. Sehingga secara jelas kita peroleh bahwa:</p>
+    $$\hat{a}_+ \psi_n = \sqrt{n+1}\psi_{n+1} \; \; \text{atau bisa ditulis} \; \; \hat{a}_+ | n \rangle = \sqrt{n+1} |n+1 \rangle $$
+
+    <p>Memakai langkah yang sama (bisa dibuktikan) kita juga bisa peroleh juga:</p>
+    $$\hat{a}_- \psi_n = \sqrt{n}\psi_{n-1} \; \; \text{atau bisa ditulis} \; \; \hat{a}_- | n \rangle = \sqrt{n} |n-1 \rangle $$
+
+    <p>Dari hasil faktor $D_n$ yang kita peroleh ini juga akhirnya statement mengenai $\hat{a}_- \psi_0 = 0$ menjadi masuk akal. Coba kita lihat kembali, maka jika kita lakukan operasi $\hat{a}_+ \psi_0$ akan diperoleh $\hat{a}_+ \psi_0 = \sqrt{0+1} \psi_1 = \psi_1$, terus $\hat{a}_+ \psi_1 = \sqrt{2} \psi_2$ atau $\psi_2 = \frac{1}{\sqrt{2}} \hat{a}_+ \psi_1$. Dengan subtitusi bahwa $\psi_1 = \hat{a}_+ \psi_0$ maka:</p>
+    $$ \psi_2 = \frac{1}{\sqrt{2}} (\hat{a}_+)^2 \psi_0 $$
+
+    <p>Terus, buat keadaan-keadaan selanjutnya, kita peroleh juga</p>
+    $$ \psi_3 = \frac{1}{\sqrt{3.2}} (\hat{a}_+)^3 \psi_0 \; , \; \psi_4 = \frac{1}{\sqrt{4.3.2}} (\hat{a}_+)^4 \psi_0 \; , \; \cdots $$
+
+    <p>yang secara umum untuk keadaan ke-n, hubungannya dengan operator tangga + yang dikenakan pada keadaan dasar (ke-0) bisa dituliskan kaya gini:</p>
+    $$ \psi_n = \frac{1}{\sqrt{n!}} (\hat{a}_+)^n \psi_0 $$
+
+    <p>Jadi ketemu bahwa konstanta normalisasi $A_n$ yang dideklarasikan sebelumnya ternyata sama dengan $\frac{1}{\sqrt{n!}}$. Sekarang, lengkap sudah solusi bagi fungsi gelombang yang ingin kita cari. Jadi, Fungsi gelombang pada keadaan ke-n dapat kita cari dengan mengenakan operator tangga + sebanyak n kali pada $\psi_0$ kemudian dikalikan dengan konstanta normalisasi $A_n = \frac{1}{\sqrt{n!}}$. </p>
+
+    <p><b>Sebagai tantangan, coba cari $\psi_1$ dan $\psi_2$ menggunakan kaitan di atas!</b></p>
+
+    <p>Lalu, apa lagi manfaat dari operator tangga ini? Operator tangga ini dapat kita gunakan untuk menyatakan operator posisi dan momentum linear! Kalo diotak-atik, kita bisa peroleh:</p>
+    $$ \hat{x} = \sqrt{\frac{\hbar}{2m\omega}}(\hat{a}_+ + \hat{a}_-) \; \; \; \text{dan} \; \; \; \hat{p} = i \sqrt{\frac{\hbar m \omega}{2}} (\hat{a}_+ - \hat{a}_-) $$
+
+    <p>Tentu saja, ini akan sangat berguna semisal kita gamau capek-capek mencari harga harap suatu operator dengan menggunakan integral (karena jujur, ngitung integralnya lumayan bikin capek). Contoh nih, contoh... Semisal kita pengen cari harga harap tenaga potensial $\langle V \rangle$ pada partikel saat berada dalam keadaan dasar (ke-0). Secara integral, kita perlu evaluasi </p>
+    $$ \langle \hat{V} \rangle = \int_{-\infty}^{\infty} \psi_0^* \hat{V} \psi_0 \; dx =\frac{1}{2} m \omega^2  \left( \frac{m \omega}{\pi \hbar} \right)^{1/2 } \int_{-\infty}^{\infty} x^2e^{ - \frac{m \omega}{\hbar} x^2 }  dx $$
+
+    <p>Hmmm, lihatnya aja udah bikin mual kan ya? Terus gimana jadinya kalo operator posisi itu kita ganti bentuknya yang dinyatakan dalam operator tangga? Simpel. Kita sekali lagi bakal evaluasi dengan minjem notasi Dirac.</p>
+    \begin{align}  \langle \hat{V} \rangle &= \langle 0 | \hat{V} 0 \rangle \\ &= \frac{1}{2} m \omega^2  \langle 0 | (\hat{x})^2 0 \rangle \\ &= \frac{1}{2} m \omega^2 \frac{\hbar}{2m\omega} \langle 0 | (\hat{a}_+ + \hat{a}_-)^2 0 \rangle \\ &= \frac{\hbar \omega}{4} \langle 0 | (\hat{a}_+\hat{a}_+ + \hat{a}_+\hat{a}_- + \hat{a}_-\hat{a}_+ + \hat{a}_-\hat{a}_-)  0 \rangle \\ &= \frac{\hbar \omega}{4} \left[  \langle 0 | (\hat{a}_+\hat{a}_+) 0 \rangle  + \langle 0 | (\hat{a}_+\hat{a}_-) 0 \rangle + \langle 0 | (\hat{a}_-\hat{a}_+) 0 \rangle + \langle 0 | (\hat{a}_-\hat{a}_-) 0 \rangle \right] \end{align}
+
+    <p>Dengan mengenakan operator tangga di dalam ket secara berurutan, dan memanfaatkan 3 kaitan ini : $\hat{a}_+ | n \rangle = \sqrt{n+1} |n+1 \rangle$,   $\hat{a}_- | n \rangle = \sqrt{n} |n \rangle$, dan $\hat{a}_- | 0 \rangle = 0$, serta fakta bahwa fungsi gelombang bersifat ortonormal, bisa kita peroleh:</p>
+    \begin{align}  \langle \hat{V} \rangle &= \frac{\hbar \omega}{4} \left[ \sqrt{1.2} \langle 0 | 2 \rangle  + 0 + \sqrt{1.1} \langle 0 | 0 \rangle + 0 \right] \\ &= \frac{\hbar \omega}{4} \left[ 0 + 0 + 1 + 0 \right]  \\ &= \frac{\hbar \omega}{4}  \end{align}
+
+    <p>Gampang, kan? Asalkan inget sifatnya aja bisa sat-set-sat-set ngitung tanpa perlu integral, hehehe... </p>
+
+    <p><b>Coba sekarang bantuin aku buat cari harga harap tenaga kinetik $\langle \hat{T} \rangle$ buat partikel osilator harmonik di keadaan dasar dong!</b></p>
+
+    <p>Nah, jadi gimana? Ternyata dengan menyelesaikan persamaan Schroedinger untuk osilator harmonik kuantum secara aljabar, kita bisa kenalan sama operator baru dengan sifat uniknya sehingga bisa kita panggil sebagai operator tangga. Dan ternyata, operator tangga ini bisa kita buat untuk cari bentuk fungsi gelombang, dan harga harap suatu operator yang melibatkan posisi dan momentum linear tanpa harus pusing-pusing pake integral! </p>
+
+    <p>Oke, sampailah kita di penghujung tulisan ini. Karena dari tadi kalian jarang ketemu sama gambar dan isinya cuma rumus doang, maka aku bakal tutup tulisan ini pake gambar.. wkwkwkwk. (Oiya, kalau nemuin kesalahan dalam tulisan ini, jangan sungkan-sungkan buat komentar ya!)</p>
+    <figure>
+    <img src="images/memeallharmonic.jpg" alt="images/memeallharmonic" class="gambar-tengah">
+    
+    <figcaption style="text-align: center; font-size: 0.85rem; opacity: 0.8; margin-top: 0.5rem;">
+        Kalian bakal ngeh sama meme ini setelah belajar fisika inti dan zat padat wkwkwk
+    </figcaption></figure>
+    <br>
+    <br>
+    <br>
+
+    <p>Referensi utama: Griffith, D.J., 2018, Introduction to Quantum Mechanics, Edisi 3, Cambridge University Press, Cambridge.</p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+</main>
+
+
+    <footer>
+        <p>&copy; 2026 Raihan Fadhel. Powered by Gemini. Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.</p>
+    </footer>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'id', // Menandai bahwa bahasa asli web ini adalah Indonesia
+                includedLanguages: 'id,en', // Membatasi opsi dropdown HANYA untuk Indonesia dan Inggris
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+        const themeBtn = document.getElementById('theme-btn');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        if (currentTheme === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            themeBtn.innerHTML = '☀️ Light Mode';
+        }
+
+        themeBtn.addEventListener('click', () => {
+            if (document.body.getAttribute('data-theme') === 'dark') {
+                document.body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeBtn.innerHTML = '🌙 Dark Mode';
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeBtn.innerHTML = '☀️ Light Mode';
+            }
+        });
+    </script>
+
+</body>
+</html>

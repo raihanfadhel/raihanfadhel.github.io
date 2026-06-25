@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raihan Fadhel | Blog</title>
+    <style>
+        /* --- SKEMA WARNA & VARIABEL --- */
+        :root {
+            --bg-color: #f7ede2; 
+            --text-color: #3d3124;
+            --link-color: #a67c52;
+            --header-bg: #eaddcb;
+            --border-color: #d4c2ab;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #251e16; 
+            --text-color: #f2e6d8;
+            --link-color: #dcb38a;
+            --header-bg: #1c1610;
+            --border-color: #4a3c2d;
+        }
+
+        p {text-align: justify;}
+
+        /* --- STYLING DASAR --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            
+            /* Mencegah Google Translate menggeser halaman ke bawah */
+            top: 0 !important; 
+        }
+
+        /* Menyembunyikan banner atas Google Translate yang muncul otomatis */
+        .VIpgJd-ZVi9od-ORHb-OEVmcd { display: none !important; }
+        .goog-te-banner-frame { display: none !important; }
+
+        /* --- HEADER & NAVIGASI --- */
+        header {
+            background-color: var(--header-bg);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--link-color);
+            text-decoration: underline;
+            text-underline-offset: 5px;
+        }
+
+        /* --- TOMBOL AKSI & WIDGET TRANSLATE --- */
+        .action-btns {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--border-color);
+        }
+
+        /* Modifikasi Dropdown Google Translate agar senada dengan desain elegan */
+        #google_translate_element select {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* Menyembunyikan teks 'Powered by Google' */
+        .goog-logo-link, .goog-te-gadget span {
+            display: none !important;
+        }
+        .goog-te-gadget {
+            color: transparent !important;
+            font-size: 0;
+        }
+
+        /* --- KONTEN UTAMA --- */
+        main {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        h2, h3 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 1rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+            opacity: 0.8;
+        }
+
+        .date {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        .gambar-tengah {
+    display: block;
+    margin: 2rem auto; /* Memberi jarak atas-bawah dan memposisikan gambar di tengah */
+    max-width: 100%; /* Memastikan gambar tidak melebihi lebar layar */
+    width: 400px; /* Kamu bisa mengubah angka ini untuk memperbesar/memperkecil gambar */
+    border-radius: 8px; /* Opsional: Membuat sudut gambar menjadi sedikit membulat/tidak lancip */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Opsional: Memberi efek bayangan tipis agar elegan */
+}
+
+        .blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.blog-card {
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    color: inherit; /* Mengikuti warna teks tema */
+    display: block;
+}
+
+.blog-card:hover {
+    background-color: var(--header-bg);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transform: translateY(-2px); /* Efek sedikit terangkat saat disentuh kursor */
+}
+
+.blog-card h3 {
+    margin-top: 0;
+    border-bottom: none;
+    margin-bottom: 0.5rem;
+    color: var(--link-color);
+}
+
+.blog-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--link-color);
+}
+    </style>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+</head>
+<body>
+
+    <header>
+        <h1>Raihan Fadhel</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="projects.html">Projects</a>
+            <a href="blog.html" class="active">Blog</a>
+            
+            <div class="action-btns">
+                <div id="google_translate_element"></div>
+                
+                <button class="btn" id="theme-btn">🌙 Dark Mode</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+    <a href="blog.html" style="display: inline-block; margin-bottom: 2rem; font-size: 0.9rem;">
+        &larr; Return to the blog lists
+    </a>
+
+    <h2 style="border-bottom: none; margin-top: 0; padding-bottom: 0;">Efek Doppler dalam Astronomi</h2>
+    <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0;">Originally published on April 11th, 2021.</p>
+
+    <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 2rem 0;">
+
+    <p>Waktu aku kelas 11 (2 SMA), aku belajar materi yang menurutku cukup menarik, "Efek Doppler" namanya. Pak Doppler ini bilang, kalau ada objek yang ngedeketin kita sambil ngeluarin frekuensi tertentu, frekuensi yang kita denger  bakalan jadi lebih besar dari frekuensi awal (suaranya jadi lebih berisik), begitu pula sebaliknya, kalau objek itu ngejauhin kita, frekuensi yang kita denger bakalan lebih kecil dari frekuensi awal (suaranya jadi lebih pelan).</p>
+
+    <p>Cara bayanginnya gini, coba ambil contoh ambulans yang bunyiin sirine. Kita ada di pinggir jalan lihat sambil dengerin suara sirine itu. Pasti waktu si ambulans ini ndeketin kita, suara sirinenya bakalan kedengeran lebih keras, waktu ngejauh, pasti suara sirinenya bakalan kedengeran lebih pelan.</p>
+
+    <p>berikut adalah gambaran efek doppler untuk sebuah mobil ambulans</p>
+
+    <figure>
+    <img src="images/dopplerambulan.png" alt="images/dopplerambulan" class="gambar-tengah"></figure>
+
+    <p>Persamaan efek doppler buat frekuensi suara ambulans tadi bisa ditulis sebagai berikut :</p>
+    $$f_p=\cfrac{v\pm v_p}{v\pm v_s} \times f_s$$
+
+    <p>dengan: $f_p$ = frekuensi yang diterima pendengar (Hz), $f_s$ = frekuensi sumber (mobil ambulans, Hz), $v$ = kecepatan suara (343 m/s), $v_p$ = kecepatan pengamat (m/s, kalau kamu diem doang di pinggir jalan berarti $v_p$ = 0 m/s), dan $v_s$ = kecepatan sumber (mobil ambulans, m/s, kalau mobil ambulans diem dan nggak bergerak berarti $v_s$ = 0 m/s)</p>
+
+    <p>Catatan untuk tanda $\pm$, untuk pendengar ($v_p$) apabila mendekati sumber suara berarti pakai tanda +, apabila menjauh pakai - .Sebaliknya untuk sumber suara ($v_s$) apabila mendekat pendengar pakai tanda -, kalau menjauh pakai +.</p>
+
+    <p>Perihal tanda $\pm$ bisa diingat pakai mnemonik sederhana. untuk $v_p$ kita anggep sebagai pahala. Apabila pahala mendekat, berarti kita berbuat hal yang baik (+), apabila pahala menjauh, kita berbuat hal buruk (-).</p>
+
+    <p>Sendangkan $v_s$ kita anggep sebagai setan. apabila setan mendekat, kita akan semakin tergoda untuk berbuat buruk (-), apabila setan menjauh maka kita pasti akan lebih mudah untuk berbuat baik (+), hahaha.</p>
+    <br>
+
+    <p>Lah, KAITANNYA SAMA ASTRONOMI APA? Oke-oke tenang dulu, itu tadi baru pemanasan wkwk. Mari kita sekarang bahas efek doppler dalam astronomi, karena aku emang suka banget sama kamu! Eh, maksudnya astronomi, hehe. Efek doppler di astronomi ini punya banyak kegunaan, contohnya : untuk menghitung kecepatan radial bintang, menghitung kecepatan galaksi menjauhi kita, bahkan juga bisa buat ngukur jarak mereka dari bumi! Semua itu punya 1 tujuan utama, menguak rahasia dari asal mula alam semesta dan prediksi keadaan alam semesta di masa yang akan datang. </p>
+
+    <p>Kalau tadi kita berurusan sama frekuensi, sekarang kita berurusan sama gelombang. Gelombang elektromagnet namanya. Kalau belum kenal, kita kenalan dulu sama gelombang elektromagnet. Mulai dari panjangnya. Urutan gelombang elektromagnet terpanjang sampai terpendek yaitu gelombang radio $\rightarrow$ gelombang mikro $\rightarrow$ infra merah $\rightarrow$ cahaya tampak (merah - jingga - kuning - hijau - biru - nila - ungu) $\rightarrow$ sinar ultraviolet $\rightarrow$ sinar-X $\rightarrow$ sinar gamma. </p>
+    <figure>
+    <img src="images/frekuensiem.png" alt="images/frekuensiem" class="gambar-tengah"></figure>
+
+    <p>Dan sifat dari gelombang elektromagnetik ini, dia bisa melaju di ruang hampa sekalipun dengan kecepatan konstan $c$, sekitar $3 \times 10^8$ m/s.</p>
+
+    <p>Terus efek doppler yang dialami sama gelombang elektromagnetik ini gimana? Tadi kan kalau sumber mendekat, frekuensi yang diterima akan lebih besar dari frekuensi awal sumber, dan sebaliknya. Nah, karena gelombang ini berbanding terbalik dengan frekuensi $\lambda = \cfrac{v}{f}$ , maka, kalau sumber mendekat, maka gelombang yang kita terima akan lebih pendek dari gelombang sumber (ingat bahwa cahaya biru memiliki panjang gelombang pendek, maka peristiwa ini akan kita sebut sebagai "blueshift/pergeseran biru"). Jika sumber menjauh, maka gelombang yang kita terima akan lebih panjang dari gelombang sumber (ingat juga bahwa cahaya merah memiliki gelombang yang panjang, maka peristiwa ini akan kita sebut sebagai "redshift/pergeseran merah"). Ilustrasi blueshift dan redshift bisa dilihat dibawah :</p>
+    <figure>
+    <img src="images/220px-Suzredshift.gif" alt="images/220px-Suzredshift" class="gambar-tengah">
+    
+    <figcaption style="text-align: center; font-size: 0.85rem; opacity: 0.8; margin-top: 0.5rem;">
+        gambar tersebut mengilustrasikan objek berwana kuning mendekati kita dan mengalami "blueshift" seakan-akan terlihat kehijauan, dan menjauhi kita sehingga mengalami "redshift" mengakibatkan objek kuning tersebut seakan-akan terlihat keorangean.
+    </figcaption></figure>
+
+    <p>Kemudian, seperti yang aku bilang di awal tadi. Efek doppler ini dapat mengukur kecepatan radial bintang. Ilustrasi dapat dilihat dibawah :</p>
+    <figure>
+    <img src="images/radial-velocity-udaily.gif" alt="images/radial-velocity-udaily" class="gambar-tengah">
+    
+    <figcaption style="text-align: center; font-size: 0.85rem; opacity: 0.8; margin-top: 0.5rem;">
+        Ilustrasi sebuah bintang dan planet saling terikat gaya gravitasi masing masing, sehingga bintang tersebut juga bergerak mengelilingi pusat massa. apabila bintang tersebut saat mengelilingi pusat massa bergerak ke arah kita sebagai pengamat, maka akan mengalami blueshift dan begitu pula sebaliknya.
+    </figcaption></figure>
+
+    <p>Persamaan untuk mengukur kecepatan radial (kecepatan bintang yang seakan-akan mendekat/menjauhi kita) tersebut dapat dituliskan sebagai berikut :</p>
+
+    <p>$$\cfrac{\Delta \lambda}{\lambda_0}=\cfrac{v}{c}$$</p>
+
+    <p>$\Delta \lambda = \lambda - \lambda_0$ = selisih antara panjang gelombang yang kita amati dengan panjang gelombang awal bintang, $\lambda$ = panjang gelombang yang kita amati, $\lambda_0$ = panjang gelombang awal bintang, $v$ = kecepatan radial bintang (m/s), dan $c$ = kecepatan cahaya ($3 \times 10^8$ m/s)</p>
+
+    <p>Darimana kita dapet rumus kayak gitu? Ok, sekarang kita anggap bahwa cahaya yang dipancarkan oleh bintang tadi mempunyai panjang gelombang $\lambda_0$. </p>
+
+    <figure>
+    <img src="images/ilustrasidop1.jpg" alt="images/ilustrasidop1" class="gambar-tengah"></figure>
+
+    <p>Karena cahaya merupakan gelombang elektromagnetik, dan gelombang elektromagnetik tadi selalu bergerak dengan kecepatan cahaya $c$, maka $\lambda_0$ adalah jarak panjang satu gelombang yang ditempuh oleh kecepatan cahaya di ruang hampa selama selang waktu $T_0$, dan kita tahu $T = \cfrac{1}{f}$ sehingga persamaan gelombang yang dipancarkan bintang mula-mula adalah</p>
+    $$\lambda_0 = cT_0 =\cfrac{c}{f_0}$$
+
+    <figure>
+    <img src="images/ilustrasidop2.jpg" alt="images/ilustrasidop2" class="gambar-tengah"></figure>
+
+    <p>Kemudian kita lihat bahwa bintang menjauhi kita dengan kecepatan $v$. Saat bergerak menjauh, bintang tersebut juga menempuh jarak sebesar $x$ pada selang waktu yang sama dengan periode gelombang mula-mula tadi, yaitu $T_0$. Pada saat itu juga muncul gelombang baru lagi yang membuat panjang gelombang $\lambda$ lebih panjang dari gelombang mula-mula $\lambda_0$ . Maka panjang $x$ adalah jarak yang ditempuh oleh bintang dengan kecepatan $v$ dengan selang waktu $T_0$, sehingga persamaannya </p>
+    $$x = vT_0 = \cfrac{v}{f_0}$$
+
+    <p>Dari gambar di atas bisa disimpulkan bahwa</p>
+    \begin{align} \lambda &= \lambda_0 + x \\ \lambda &= \lambda_0 + \cfrac{v}{f_0} \\ \lambda &= \lambda_0 + \cfrac{v\lambda_0}{c} \\ \lambda - \lambda_0 &= \cfrac{v\lambda_0}{c} \end{align}
+
+    <p>Ingat bahwa $\lambda - \lambda_0 = \Delta \lambda$, maka terbukti </p>
+    $$\cfrac{\Delta \lambda}{\lambda_0}=\cfrac{v}{c}$$
+
+
+    <p>*Catatan: kamu bisa pake pembuktian di atas buat buktiin rumus efek doppler pada mobil ambulans yang kita bicarain di awal. Ga percaya? Coba aja deh!</p>
+
+    <p>Persamaan ini juga berlaku buat galaksi. Fyi,  Galaksi dalam grup lokal biasanya masih saling terikat dengan gravitasi antara satu galaksi dengan yang lainnya. Jadi rata-rata galaksi dalam grup lokal ini mengalami blueshift. Sebagai contoh, Galaksi Andromeda yang bergerak kearah Galaksi Bimasakti kita. Tapi, karena pengaruh dark energy (sebuah partikel misterius yang sifatnya seakan-akan melawan gravitasi), membuat galaksi yang jauh disana dan tidak terikat dengan gravitasi grup lokal kita justru bergerak menjauhi kita. Menurut pengamatan pun, semakin jauh galaksi, semakin cepat galaksi itu bergerak menjauhi kita. Kesimpulannya, alam semesta ini mengembang kayak balon, dan bahkan mengembangnya pun dipercepat! 
+</p>
+
+    <p>Terimakasih kepada pak doppler ini yang udah nemuin efek doppler, karena itu kita bisa tahu keadaan alam semesta sekarang, di masa lalu, dan bahkan prediksi kalau alam semesta di masa depan nanti bakalan terus mengembang sampe semua galaksi terpisah satu sama lain. Masya-Allah!</p>
+
+    <p>Kita bisa pinjem rumus doppler untuk kecepatan radial bintang tadi buat nentuin nilai redshift dan kecepatan galaksi yang jauh saat menjauhi kita. cukup galaksi aja yang menjauh, kamu jangan :( . Nilai redshift $z$ dapat dihitung melalui </p>
+    $$z = \cfrac{\Delta \lambda}{\lambda_0}=\cfrac{v}{c}$$
+
+    <p>dengan $z$ = nilai redshift, $\Delta \lambda = \lambda - \lambda_0$ = selisih antara panjang gelombang yang kita amati dengan panjang gelombang awal galaksi, $\lambda$ = panjang gelombang yang kita amati, $\lambda_0$ = panjang gelombang awal galaksi, dan $v$ = kecepatan galaksi menjauhi kita (m/s)
+</p>
+
+    <p>Bisa kita simpulin kalau semakin besar nilai $z$, maka kecepatan galaksi menjauhi kita juga akan semakin besar, maka jaraknya dari kita pun juga akan semakin jauh.
+</p>
+
+    <p>Tapi gimana nih kalo semisal ada galaksi yang nilai redshift $z=3$ ? Kalau kita subtitusi ke persamaan $z=\cfrac{v}{c}$, maka kecepatan galaksi tersebut akan menjadi $v=3c$ alias 3 kali kecepatan cahaya! What? No waayy dungs, that's imposibeelll! Terimakasih lagi buat Einstein yang bilang bahwa tidak ada objek yang bermassa dan bergerak melebihi kecepatan cahaya, dan dia juga bikin solusinya. Apa itu? Yap, faktor lorentz $\gamma$. 
+</p>
+
+    <p>Ayo kita bermain rumus lagi, wkwk
+</p>
+
+    <p>Pertama kita ubah persamaan di atas.</p>
+    \begin{align} \lambda -\lambda_0 &= \Delta \lambda = \cfrac{v\lambda_0}{c} \\ \lambda &= \lambda_0 + \cfrac{v\lambda_0}{c} \\ \lambda &= \lambda_0\left(1+\cfrac{v}{c}\right) \end{align}
+
+
+
+    <p>karena $\lambda$ yang kita terima ini berasal dari objek yang bergerak dengan kecepatan relativistik, maka persamaan $\lambda$ tadi kita pakein faktor lorentz. Sehingga, </p>
+    $$\lambda =\gamma \lambda_0\left(1+\cfrac{v}{c}\right)$$
+
+
+    <p>kita sekarang pelan-pelan balikin lagi supaya jadi ke rumus awal </p>
+    \begin{align} \lambda - \lambda_0 &=\gamma \lambda_0\left(1+\cfrac{v}{c}\right) - \lambda_0 \\ \lambda - \lambda_0 &=\lambda_0 \left(\gamma \left(1+\cfrac{v}{c}\right) - 1 \right) \\  \cfrac{\lambda - \lambda_0}{\lambda_0} &= \gamma \left(1+\cfrac{v}{c}\right) - 1 \end{align}
+
+
+    <p>ingat bahwa $\gamma = \cfrac{1}{\sqrt{1-\cfrac{v^2}{c^2}}}$, maka:</p>
+    \begin{align} \cfrac{\Delta \lambda}{\lambda_0} &= \cfrac{1+\cfrac{v}{c}}{\sqrt{1-\cfrac{v^2}{c^2}}}- 1 \\ \cfrac{\Delta \lambda}{\lambda_0} &= \cfrac{\cfrac{c+v}{c}}{\cfrac{\sqrt{c^2-v^2}}{c}}- 1 \\ \cfrac{\Delta \lambda}{\lambda_0} &= \cfrac{c+v}{\sqrt{c^2-v^2}}- 1\end{align}
+
+
+    <p>ingat bahwa $x^2-y^2 = (x+y)(x-y)$ dan $(x+y) = (\sqrt{x+y})^2$, maka</p>
+    $$\cfrac{\Delta \lambda}{\lambda_0} = \cfrac{(\sqrt{c+v})^2}{\sqrt{c+v}\sqrt{c-v}}- 1$$
+
+
+    <p>oleh karena itu, persamaan efek doppler relativistik dapat ditulis sebagai berikut :</p>
+    $$z = \cfrac{\Delta \lambda}{\lambda_0} = \sqrt{\cfrac{c+v}{c-v}}- 1$$
+
+
+    <p>Persamaan tadi biasanya dipakai buat galaksi yang luar biasa jauh. Dan pertanyaannya, bagaimana astronom bisa tahu panjang gelombang awal galaksi sedangkan panjang gelombang yang kita terima udah memanjang? Kita tahu unsur paling dasar dan paling banyak di alam semesta ini kan hidrogen. Dan bintang pun bahan bakar, unsur penyusunnya juga dari hidrogen. Galaksi isinya bintang, wkwk. Jadi, mereka bikin simulasi panjang gelombang hidrogen dari bintang-bintang penyusun galaksi itu di laboratorium. Terus dibandingin deh sama panjang gelombang yang kita amatin. </p>
+    
+    <figure>
+    <img src="images/redshift.jpeg" alt="images/redshift" class="gambar-tengah"> 
+    <figcaption style="text-align: center; font-size: 0.85rem; opacity: 0.8; margin-top: 0.5rem;">Ilustrasi perbandingan garis absorbsi galaksi yang mengalami redshift (kanan) dengan garis absorbsi serupa dari garis absorbsi standar laboratorium (kiri).
+    </figcaption></figure>
+
+    <p>Terus nih ya terus, kalau cara ngukur jarak galaksi itu tadi dari kecepatan menjauhnya gimana? Kalian bisa baca banyak litetatur tentang hukum hubble. Oke udah dulu ya, karena fokus di sini cuma bicarain efek doppler. Sekian dulu dari aku, semoga bermanfaat!</p>
+    <br>
+    <br>
+    <br>
+
+    <p>Main Source : Clarke, D. dan Roy, A.E., 2003, Astronomy Principles and Practice, 4 ed, Institute of Physics Publishing, London.</p>
+
+    <p>Gambar dan ilustrasi GIF didapat dari Google Images.</p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+</main>
+
+
+    <footer>
+        <p>&copy; 2026 Raihan Fadhel. Powered by Gemini. Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.</p>
+    </footer>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'id', // Menandai bahwa bahasa asli web ini adalah Indonesia
+                includedLanguages: 'id,en', // Membatasi opsi dropdown HANYA untuk Indonesia dan Inggris
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+        const themeBtn = document.getElementById('theme-btn');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        if (currentTheme === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            themeBtn.innerHTML = '☀️ Light Mode';
+        }
+
+        themeBtn.addEventListener('click', () => {
+            if (document.body.getAttribute('data-theme') === 'dark') {
+                document.body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeBtn.innerHTML = '🌙 Dark Mode';
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeBtn.innerHTML = '☀️ Light Mode';
+            }
+        });
+    </script>
+
+</body>
+</html>

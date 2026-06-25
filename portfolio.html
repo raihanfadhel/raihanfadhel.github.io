@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raihan Fadhel | Home</title>
+    <title>Raihan Fadhel | Portfolio</title>
     <style>
         /* --- SKEMA WARNA & VARIABEL --- */
         :root {
@@ -37,82 +37,6 @@
             /* Mencegah Google Translate menggeser halaman ke bawah */
             top: 0 !important; 
         }
-
-        /* --- LAYOUT 2 KOLOM (SIDEBAR & KONTEN) --- */
-.layout-container {
-    display: flex;
-    gap: 3rem;
-    max-width: 1000px;
-    margin: 3rem auto;
-    padding: 0 2rem;
-    align-items: flex-start; /* Agar sidebar tidak memanjang ke bawah mengikuti isi konten */
-}
-
-/* --- STYLING SIDEBAR (PROFIL SAMPING) --- */
-.sidebar {
-    flex: 1; /* Lebar sidebar 1 bagian */
-    min-width: 250px;
-}
-
-.profile-img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%; /* Membuat gambar menjadi bulat sempurna */
-    object-fit: cover; /* Mencegah gambar gepeng */
-    border: 3px solid var(--border-color);
-    margin-bottom: 1rem;
-}
-
-.sidebar h2 {
-    margin-top: 0;
-    border-bottom: none;
-    margin-bottom: 0.5rem;
-}
-
-.sidebar p {
-    font-size: 0.9rem;
-    opacity: 0.9;
-    margin-bottom: 1.5rem;
-}
-
-.social-links {
-    list-style: none; /* Menghilangkan titik-titik (bullet) bawaan */
-    padding: 0;
-    margin: 0;
-}
-
-.social-links li {
-    margin-bottom: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 12px; /* Jarak antara ikon dan teks */
-    font-size: 0.95rem;
-}
-
-.social-links i {
-    width: 20px;
-    text-align: center;
-    color: var(--link-color);
-    font-size: 1.1rem;
-}
-
-/* --- STYLING KONTEN UTAMA --- */
-.main-content {
-    flex: 2.5; /* Lebar konten utama 2.5 kali lipat sidebar */
-}
-
-/* --- RESPONSIVITAS (Tampilan Layar HP) --- */
-@media (max-width: 768px) {
-    .layout-container {
-        flex-direction: column; /* Mengubah 2 kolom menjadi atas-bawah saat dibuka di HP */
-    }
-    .sidebar {
-        text-align: center; /* Memposisikan profil di tengah saat di HP */
-    }
-    .social-links li {
-        justify-content: center; /* Menengahkan ikon dan teks saat di HP */
-    }
-}
 
         /* Menyembunyikan banner atas Google Translate yang muncul otomatis */
         .VIpgJd-ZVi9od-ORHb-OEVmcd { display: none !important; }
@@ -248,15 +172,10 @@
             opacity: 0.8;
         }
 
-        .gambar-tengah {
-    display: block;
-    margin: 2rem auto; /* Memberi jarak atas-bawah dan memposisikan gambar di tengah */
-    max-width: 100%; /* Memastikan gambar tidak melebihi lebar layar */
-    width: 400px; /* Kamu bisa mengubah angka ini untuk memperbesar/memperkecil gambar */
-    border-radius: 8px; /* Opsional: Membuat sudut gambar menjadi sedikit membulat/tidak lancip */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Opsional: Memberi efek bayangan tipis agar elegan */
-}
-
+        .date {
+            font-style: italic;
+            color: #7f8c8d;
+        }
     </style>
 
     <script>
@@ -276,8 +195,8 @@
     <header>
         <h1>Raihan Fadhel</h1>
         <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="portfolio.html">Portfolio</a>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html" class="active">Portfolio</a>
             <a href="projects.html">Projects</a>
             <a href="blog.html">Blog</a>
             
@@ -289,37 +208,88 @@
         </nav>
     </header>
 
-<div class="layout-container">
+    <main>
+        <h1>Muhammad Raihannafi Fadhel</h1>
+            Yogyakarta, Indonesia <br> 
+            <a href="mailto:raihanfadhel72@gmail.com" target="_blank" class="link"> raihanfadhel72@gmail.com </a><br> 
 
-    <aside class="sidebar">
-        <img src="images/fotoku.jpeg" alt="Foto Profil" class="profile-img">
-        
-        <h2>Raihan Fadhel</h2>
-        
-        <ul class="social-links">
-            <li>Yogyakarta, Indonesia</li>
-            <li>Universitas Gadjah Mada</li>
-            <li><a href="mailto:raihanfadhel@gmail.com" target="_blank"> Email</a></li>
-            <li><a href="https://linkedin.com/in/raihanfadhel/" target="_blank"> LinkedIn</a></li>
-            <li><a href="https://www.youtube.com/@raihanfadhel9699" target="_blank"> YouTube</a></li>
+        <section id="summary">
+        <h2>About Me</h2>
+        <p>
+            Bachelor of Physics graduate from Universitas Gadjah Mada with a strong interest in nuclear and particle physics. Motivated to pursue advanced phenomenological high energy physics research, supported by solid academic training in quantum mechanics, nuclear and particle physics, and computational methods. Experienced in problem-solving, teaching, and conducting research projects.
+        </p> </section>
+
+        <section id="education">
+        <h2>Education</h2>
+        <ul>
+            <li>
+                <strong>Universitas Gadjah Mada</strong> - Bachelor of Science in Physics <span class="date">(Aug 2021 - Mar 2025)</span>
+                <ul>
+                    <li>GPA: 3.82/4.00</li>
+                    <li>Thesis: "Analysis of Proton Profile in Diffractive High Energy Photon-Proton Collision" <br> Supervised by Chalis Setyadi </li>
+                        <ul> 
+                            <li>Analyzed proton transversal color-charge distribution using the dipole picture framework</li>
+                            <li>omputed differential cross-sections for exclusive coherent $J/\psi$ and $\rho$-meson production to constrain proton profile models against HERA data.</li>
+                        </ul>
+                    <li>Coursework: Quantum Physics I-II, Theory of Relativity, Astrophysics and Cosmology, Advanced Quantum Mechanics, Nuclear and Particle Physics I–II, Introduction to Particle Physics, Reactor Physics, Numerical Methods, and Complex Systems Physics</li>
+                </ul>
+            </li>
         </ul>
-    </aside>
-
-    <main class="main-content">
-        <section>
-            <h2>Hello!</h2>
-            
-            <p>My name is Muhammad Raihannafi Fadhel, or you can just call me Raihan (pronounced: Rah-ee-Hahn) or Fadhel (pronounced: Fah-dell). I know it's a bit confusing, but for Fadhel, it's "Fah", like in "father", and "dell", like the computer brand.</p>
-
-            <p>Since high school, I have been really intrigued by Physics and actively joined science competitions, particularly as one of the delegates of my high school in the Astronomy Olympiad (OSN) for two years straight. This passion has persisted until I enrolled in a physics undergraduate program at Universitas Gadjah Mada (UGM). The pinnacle of my career was in 2024, where I was awarded a Bronze Medal in Physics at Olimpiade Nasional Matematika dan Ilmu Pengetahuan Alam - Perguruan Tinggi (ONMIPA-PT). Actually, I wasn't quite satisfied with the result, and deep down in my heart, I felt I should've earned more, but still... Alhamdulillah. However, because my final year was already in front of my very eyes, and kind of haunted me, I decided to end my olympiad career and focus on my thesis project.</p>
-            <figure> <img src="images/onmipa2024.jpg" alt="images/onmipa2024" class="gambar-tengah"> </figure>
-
-            <p>My <a href="https://etd.repository.ugm.ac.id/penelitian/detail/252225" target="_blank">undergraduate thesis project</a> has opened me up to the world of particle physics, and under <a href="https://scholar.google.com/citations?user=-bfQdHUAAAAJ&hl=en" target="_blank">Dr. Chalis Setyadi</a>'s supervision, I became deeply immersed in the research of phenomenological high-energy physics. To put it simply, I examined the behaviour of the internal structure of the proton in high-energy scattering, particularly in exclusive vector meson production. This small but meaningful project has allowed me to engage further in academia, and led me to present my research at a Southeast Asian Workshop on Nuclear and Hadron Physics and to publish my first-ever manuscript based on my results in Modern Physics Letters A.</p>
-            <figure> <img src="images/undergradthesisdef.png" alt="images/undergradthesisdef" class="gambar-tengah"> </figure>
-
-            <p>Recently, I was admitted to join the Joint European Master Degree in Nuclear Physics, starting in October 2026, with an Erasmus Mundus Scholarship. Hopefully, under this program, I will be able to deepen my understanding of the theoretical and computational aspects of nuclear and particle physics, as well as sharpen my research skills to contribute further to the field, to stay at the forefront of experimental and future collider programs (Bismillah!).</p>
- 
         </section>
+
+        <section id="publications">
+        <h2>Publications</h2>
+        <h3>Research Papers</h3>
+        <ul>
+            <li>Fadhel, M. R. and Setyadi, C., 2026, Constraining the proton transverse partonic distribution through coherent diffractive $J/\psi$ production at HERA within a static Gaussian hot spot model, <i><a href="https://doi.org/10.1142/S0217732326420150" target="_blank" class="link"> Modern Physics Letters A </a><br> </i> </li>
+        </ul>
+        </section>
+
+
+        <section id="Conferences">
+        <h2>Conferences</h2>
+        <ul>
+            <li> <strong>Southeast Asian Workshop on Nuclear and Hadron Physics (SEA-NHP)</strong> <br> <span class="date">(Aug 2025)</span> </li>
+            <ul>
+                <li>Delivered an oral presentation on "Constraining the proton transverse partonic distribution through coherent J/psi production at HERA within a three hot spot model"</li>
+                <li>Evaluated the sensitivity of cross-sections to the degrees of freedom arising from static Gaussian hot-spot proton profile.</li>
+            </ul>
+        </ul>
+        </section>
+
+        <section id="programs">
+        <h2>Attended Programs</h2>
+        <ul>
+            <li><strong>The 11th ASEAN School on Plasma and Nuclear Fusion (ASPNF)</strong> <span class="date">(Jan 2026)</span><br> 
+                Selected for theoretical and computational training on Tokamak operation, plasma diagnostics, and magnetohydrodynamics.</li>
+            <li><strong>The 7th Particle Physics School in South-East Asia (PPSSEA)</strong> <span class="date">(Jan 2025)</span><br>
+                Completed a comprehensive program focusing on B-physics, detector instrumentation, and particle accelerators led by KEK researchers.</li>
+        </ul>
+        </section>
+
+        <section id="experience">
+        <h2>Experience</h2>
+        <ul>
+            <li><strong>Physics Tutor</strong> <span class="date">(Oct 2021 - Jul 2026)</span><br>
+                Taught physics to Senior High School and first-year engineering students for several local tutoring agencies.</li>
+            <li><strong>Laboratory Instructor</strong> at Universitas Gadjah Mada <span class="date">(Aug 2023 - May 2025)</span><br>
+                Supervised undergraduate students in physics experiments and assessed their experimental reports. Instructed experiments including Damped Oscillation, Earth's Magnetic Field, X-ray Diffraction, and Thomson's $e/m$ Experiment.</li>
+            <li><strong>Academic Grader and Tutor</strong> at Universitas Gadjah Mada <span class="date">(Feb 2023 - Dec 2024)</span><br>
+                Assisted lecturers in grading assignments for core courses and conducted tutorial sessions to prepare students for examinations. Sucessfully instructed several compulsory undergraduate courses such as Mathematical Physics II, Quantum Physics I-II, Electromagnetics II, Nuclear & Particle Physics II, and Modern Optics.</li>
+        </ul>
+    </section>
+
+    <section id="skills">
+        <h2>Skills & Awards</h2>
+        <ul>
+            <li><strong>Programming:</strong> Python (utilized for data fitting and parallel processing in HEP research), Mathematica, and LaTeX.</li>
+            <li><strong>Languages:</strong> Indonesian (Native), English (C1 Advanced, IELTS Academic overall band score 7.5).</li>
+            <li><strong>Awards:</strong></li>
+                <ul>
+                    <li>Bronze Medal in Physics at the National Mathematics and Natural Sciences Olympiad <span class="date">(May 2024)</span>.</li>
+                </ul>
+        </ul>
+    </section>
 
 
     <footer>

@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raihan Fadhel | Projects</title>
+    <style>
+        /* --- SKEMA WARNA & VARIABEL --- */
+        :root {
+            --bg-color: #f7ede2; 
+            --text-color: #3d3124;
+            --link-color: #a67c52;
+            --header-bg: #eaddcb;
+            --border-color: #d4c2ab;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #251e16; 
+            --text-color: #f2e6d8;
+            --link-color: #dcb38a;
+            --header-bg: #1c1610;
+            --border-color: #4a3c2d;
+        }
+
+        p {text-align: justify;}
+
+        /* --- STYLING DASAR --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            
+            /* Mencegah Google Translate menggeser halaman ke bawah */
+            top: 0 !important; 
+        }
+
+        /* Menyembunyikan banner atas Google Translate yang muncul otomatis */
+        .VIpgJd-ZVi9od-ORHb-OEVmcd { display: none !important; }
+        .goog-te-banner-frame { display: none !important; }
+
+        /* --- HEADER & NAVIGASI --- */
+        header {
+            background-color: var(--header-bg);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--link-color);
+            text-decoration: underline;
+            text-underline-offset: 5px;
+        }
+
+        /* --- TOMBOL AKSI & WIDGET TRANSLATE --- */
+        .action-btns {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--border-color);
+        }
+
+        /* Modifikasi Dropdown Google Translate agar senada dengan desain elegan */
+        #google_translate_element select {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* Menyembunyikan teks 'Powered by Google' */
+        .goog-logo-link, .goog-te-gadget span {
+            display: none !important;
+        }
+        .goog-te-gadget {
+            color: transparent !important;
+            font-size: 0;
+        }
+
+        /* --- KONTEN UTAMA --- */
+        main {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        h2, h3 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 1rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+            opacity: 0.8;
+        }
+
+        .date {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        .gambar-tengah {
+    display: block;
+    margin: 2rem auto; /* Memberi jarak atas-bawah dan memposisikan gambar di tengah */
+    max-width: 100%; /* Memastikan gambar tidak melebihi lebar layar */
+    width: 400px; /* Kamu bisa mengubah angka ini untuk memperbesar/memperkecil gambar */
+    border-radius: 8px; /* Opsional: Membuat sudut gambar menjadi sedikit membulat/tidak lancip */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Opsional: Memberi efek bayangan tipis agar elegan */
+}
+
+        .blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.blog-card {
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    color: inherit; /* Mengikuti warna teks tema */
+    display: block;
+}
+
+.blog-card:hover {
+    background-color: var(--header-bg);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transform: translateY(-2px); /* Efek sedikit terangkat saat disentuh kursor */
+}
+
+.blog-card h3 {
+    margin-top: 0;
+    border-bottom: none;
+    margin-bottom: 0.5rem;
+    color: var(--link-color);
+}
+
+.blog-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--link-color);
+}
+    </style>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+</head>
+<body>
+
+    <header>
+        <h1>Raihan Fadhel</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="blog.html">Blog</a>
+            
+            <div class="action-btns">
+                <div id="google_translate_element"></div>
+                
+                <button class="btn" id="theme-btn">🌙 Dark Mode</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+    <a href="projects.html" style="display: inline-block; margin-bottom: 2rem; font-size: 0.9rem;">
+        &larr; Return to the project lists
+    </a>
+
+    <h2 style="border-bottom: none; margin-top: 0; padding-bottom: 0;">Pembahasan ONMIPA Fisika Tingkat Nasional Tahun 2024 Subbidang Elektrodinamika</h2>
+    <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0;">Originally published on July 28th, 2025.</p>
+
+    <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 2rem 0;">
+
+    <h2>Soal nomor 1</h2>
+
+    <p>Tinjau sebuah partikel ion atom X yang mempunyai potensial berbentuk</p>
+    $$V(r) = A_{0}\frac{e^{-\alpha r}}{r}\left(1 + \frac{\alpha r}{2}\right)$$
+    
+    <p>dimana $r$ adalah radius dalam koordinat bola, $A_{0}$ dan $\alpha$ adalah konstanta positif. Tentukanlah:</p>
+
+    <ol type="a">
+        <li>medan listrik dari ion tersebut,</li>
+        <li>distribusi muatan listrik secara volum yang memberikan potensial diatas,</li>
+        <li>muatan total ion atom X, dan</li>
+        <li> syarat agar muatan total ion atom X dapat diukur.</li>
+    </ol>
+
+    <p><b>Jawaban:</b></p>
+
+    <p>a. Medan listrik dapat ditentukan melalui hubungan $\vec{E} = -\nabla V$</p>
+    \begin{align}\vec{E}(r) &= -\frac{\partial V(r)}{\partial r}\hat{r} = -\left[ A_{0}\left(\frac{-\alpha r e^{-\alpha r} - e^{-\alpha r}}{r^{2}}\right)\left(1 + \frac{\alpha r}{2}\right) + A_{0}\frac{e^{-\alpha r}}{r}\left(\frac{\alpha}{2}\right) \right]\hat{r}\\
+
+    &= -A_{0}\left[ \frac{\alpha e^{-\alpha r}}{2r} - \frac{\alpha r e^{-\alpha r} + e^{-\alpha r}}{r^{2}}\left(1 + \frac{\alpha r}{2}\right) \right]\hat{r}\\
+
+    &= -A_{0}\left[ \frac{\alpha}{2r} - \left(\frac{\alpha}{r} + \frac{1}{r^{2}}\right)\left(1 + \frac{\alpha r}{2}\right) \right]e^{-\alpha r}\hat{r}\\
+
+    &= A_{0}\left[ \frac{\alpha}{r} + \frac{\alpha^{2}}{2} + \frac{1}{r^{2}} \right]e^{-\alpha r}\hat{r}\end{align}
+    <br>
+
+    <p>b. Melalui hukum Gauss $\oint \vec{E} \cdot d\vec{A} = \frac{q}{\epsilon_{0}} \rightarrow \oint \vec{E} \cdot d\vec{A} = \int \frac{\rho}{\epsilon_{0}} dV$</p>
+    $$\int \nabla \cdot \vec{E} dV = \int \frac{\rho}{\epsilon_{0}} dV$$
+
+    <p>Diperoleh $\nabla \cdot \vec{E} = \frac{\rho}{\epsilon_{0}}$. Maka, distribusi muatan listrik dapat ditentukan dengan:</p>
+
+    <p>$$\rho(r) = \epsilon_{0}(\nabla \cdot \vec{E})$$</p>
+
+
+    <p>Diperhatikan pada saat $r \to 0$, $E(r) \approx A_{0}\frac{\hat{r}}{r^{2}}$. Memanfaatkan kaitan $\nabla \cdot (u\vec{v}) = \nabla u \cdot \vec{v} + u\nabla \cdot \vec{v}$ dengan $u = A_{0}$ dan $\vec{v} = \frac{\hat{r}}{r^{2}}$, diperoleh:</p>
+    $$\rho(r) = \epsilon_{0}\left[ \nabla A_{0} \cdot \frac{\hat{r}}{r^{2}} + A_{0}\nabla \cdot \left(\frac{\hat{r}}{r^{2}}\right) \right]$$
+
+    <p>Diketahui $\nabla \cdot \left(\frac{\hat{r}}{r^{2}}\right) = 4\pi\delta^{3}(\vec{r})$, maka untuk $r > 0$,</p>
+    \begin{align}
+    \rho(r) &= \epsilon_{0}\left[ \frac{1}{r^{2}}\frac{\partial}{\partial r}(r^{2}E_{r}) \right] = \frac{\epsilon_{0}A_{0}}{r^{2}}\left[ \frac{\partial}{\partial r}\left[ \left(\alpha r + \frac{\alpha^{2}}{2}r^{2} + 1\right)e^{-\alpha r} \right] \right]\\
+    \rho(r) &= \frac{\epsilon_{0}A_{0}}{r^{2}}e^{-\alpha r}\left[ \alpha + \alpha^{2}r - \alpha^{2}r - \frac{\alpha^{3}r^{2}}{2} - \alpha \right] = -\frac{\epsilon_{0}A_{0}\alpha^{3}}{2}e^{-\alpha r}\end{align}
+
+    <p>Sehingga,</p>
+    $$\rho(r) = 4\pi\epsilon_{0}A_{0}\delta^{3}(\vec{r}) - \frac{\epsilon_{0}A_{0}\alpha^{3}}{2}e^{-\alpha r}$$
+    <br>
+
+
+    <p>c. Muatan total $q$ dapat ditentukan oleh $q = \int \rho dV$</p>
+    $$q = 4\pi\epsilon_{0}A_{0}\left[ \int_{V}\delta^{3}(\vec{r})dV - \frac{\alpha^{3}}{2}\int_{0}^{\infty}r^{2}e^{-\alpha r}dr \right]$$
+
+    <p> Memanfaatkan kaitan $\int_{V}\delta^{3}(\vec{r})dV = 1$ dan $\Gamma(n) = \int_{0}^{\infty}u^{n-1}e^{-u}du$, serta mendefinisikan peubah $\alpha r = u \rightarrow \alpha dr = du$, diperoleh:</p>
+    $$q = 4\pi\epsilon_{0}A_{0}\left[ 1 - \frac{\Gamma(3)}{2} \right] = 0$$
+    <br>
+
+    <p>d. iperhatikan bentuk $V(r) = A_{0}\frac{e^{-\alpha r}}{r} + \frac{A_{0}\alpha r}{2}e^{-\alpha r}$. Ketika $r \to \infty$, $V(r) \to 0$.Syarat agar muatan total ion atom dapat terukur, potensial harus memiliki bentuk $V(r) \approx \frac{C}{r}$, yang merupakan bentuk potensial muatan titik. 
+    Ini akan terpenuhi ketika $\alpha \to 0$.</p>
+
+    <h2>Soal nomor 2</h2>
+    
+    <p>Momen dipol magnetik merupakan besaran vektor yang mencirikan sifat keseluruhan magnet, termasuk magnet elementer. Arah momen dipol umumnya dari titik kutub selatan ke kutub utara magnet. Salah satu sumber momen magnetik adalah medan magnet yang ditimbulkan akibat gerakan elektron yang mengorbit nukleusnya. Asumsikan orbit elektron adalah lingkaran berjari-jari $R$ dan atom hanya terdiri dari satu elektron dan satu proton yang masing-masing memiliki massa $m_e$ dan $m_p$ ($m_p \gg m_e$) serta bermuatan $-e$ dan $e$. Diketahui orbit elektron berada pada bidang $xy$. Tentukan:</p>
+
+    <ol type="a">
+        <li>kecepatan angular dari gerakan elektron yang mengorbit proton.</li>
+        <li>besar medan magnet pada jarak $z$ ($z \gg R$ dari bidang $xy$) yang dihasilkan akibat gerakan elektron.</li>
+        <li>Sebuah magnet batang kecil memiliki medan magnet pada jarak yang jauh darinya sebesar: 
+        $$B = \frac{\mu_0 m}{2\pi z^3}$$ 
+        dimana $z$ merupakan jarak dari magnet pada sumbu yang menghubungkan kutub utara dan selatan, $m$ adalah momen dipol magnet. Dengan mengasumsikan elektron mengorbit proton seperti magnet batang kecil, tentukan dipol magnet $m$ dari sebuah elektron yang mengorbit atom.
+        </li>
+
+        <li> Kemudian, untuk kasus $z$ tidak jauh lebih besar dari $R$. Medan magnet akibat suatu dipol magnet akan memiliki komponen arah vertikal dan radial. Besar medan magnet yang diakibatkannya adalah:
+        $$\vec{B} = \frac{\mu_0 m}{4\pi(r^2+z^2)^{3/2}} \left[ \left(\frac{3z^2}{r^2+z^2} - 1\right)\hat{z} + \left(\frac{3zr}{r^2+z^2}\right)\hat{r} \right]$$
+        Sebuah dipol magnet dengan momen magnet sebesar $m$ dijatuhkan dari ketinggian $h$ dari pusat sebuah kawat cincin diam dengan jari-jari $a$. Diketahui $m$ mengarah ke bawah dan anggap sumbu $z$ positif ke arah bawah juga. Tentukan GGL induksi yang terjadi pada cincin sebagai fungsi dari kecepatan sesaat dipol magnet ($v$) dan posisi dipol terhadap posisi awalnya ($z$).</li>
+    </ol>
+
+    <p><b>Jawaban:</b></p>
+
+    <p>a. Jika $m_p \gg m_e$, elektron dapat diasumsikan mengorbit proton yang diam akibat gaya Coulomb. Gaya gravitasi dapat diabaikan.</p>
+    $$F_{sp} = F_c \rightarrow \frac{m_e v^2}{R} = \frac{1}{4\pi\epsilon_0}\frac{e^2}{R^2}$$
+    $$m_e \omega^2 R = \frac{e^2}{4\pi\epsilon_0 R^2} \implies \omega = \left[ \frac{e^2}{4\pi\epsilon_0 m_e R^3} \right]^{1/2}$$
+    <br>
+
+
+    <p>b. Arus listrik yang dihasilkan oleh loop orbit elektron yang mengelilingi proton adalah $I = \frac{e\omega}{2\pi}$. Menggunakan hukum Biot-Savart:</p>
+    $$\vec{B} = \frac{\mu_0}{4\pi} \int \frac{I \, d\vec{l} \times \hat{s}}{s^2}$$
+    $$\vec{B} = \frac{\mu_0 e \omega}{4\pi (2\pi)} \int_0^{2\pi} \frac{R \, d\phi \, \hat{\phi} \times (z\hat{z} - R\hat{r})}{(z^2 + R^2)^{3/2}}$$
+    $$\vec{B} = \frac{\mu_0 e \omega}{8\pi^2} \left[ \int_0^{2\pi} \frac{zR \, d\phi}{(z^2 + R^2)^{3/2}}(\hat{r}) + \int_0^{2\pi} \frac{R^2 \, d\phi}{(z^2 + R^2)^{3/2}}(\hat{z}) \right]$$
+
+    <p>Secara simetri, komponen $B_r$ akan saling menghilangkan (\textit{cancel}), sehingga menyisakan arah $\hat{z}$:</p>
+    $$\vec{B} = \frac{\mu_0 e \omega}{8\pi^2} \frac{R^2 (2\pi)}{(z^2 + R^2)^{3/2}} \hat{z} = \frac{\mu_0 e \omega R^2}{4\pi (z^2 + R^2)^{3/2}} \hat{z}$$
+
+    <p>Jika $z \gg R$, maka:
+    $$\vec{B} \approx \frac{\mu_0 e \omega R^2}{4\pi z^3} \hat{z}$$</p>
+    <br>
+
+
+
+    <p>c. Jika medan magnet sebuah batang magnet dari jarak yang sangat jauh dapat didekati dengan $B = \frac{\mu_0 m}{2\pi z^3}$, dan diasumsikan untuk sistem elektron yang mengorbit proton dapat didekati seperti batang magnet, maka:
+    $$\frac{\mu_0 e \omega R^2}{4\pi z^3} = \frac{\mu_0 m}{2\pi z^3} \implies m = \frac{e \omega R^2}{2}$$</p>
+    <br>
+
+    <p>d. GGL induksi yang dihasilkan dari perubahan fluks magnet dipol diberikan oleh $\varepsilon = -\frac{d\Phi}{dt}$ dengan $\Phi = \int \vec{B} \cdot \hat{n} \, dA$. Fluks pada sembarang ketinggian $z$:</p>
+
+    \begin{align*}
+    \Phi &= \int_0^a \frac{\mu_0 m}{4\pi(r^2+z^2)^{3/2}} \left[ \left(\frac{3z^2}{r^2+z^2} - 1\right)\hat{z} + \left(\frac{3zr}{r^2+z^2}\right)\hat{r} \right] \cdot \hat{z} \, 2\pi r \, dr \\[15pt]
+    \Phi &= \int_0^a \frac{\mu_0 m}{\cancel{4}_2\pi(r^2+z^2)^{3/2}} \left[ \left(\frac{3z^2}{r^2+z^2} - 1\right) \right] \cancel{2}\pi r \, dr = \frac{\mu_0 m}{2} \int_0^a \frac{(2z^2 - r^2)}{(r^2+z^2)^{5/2}} r \, dr \\[15pt]
+    \Phi &= \frac{\mu_0 m}{2} \left[ 2z^2 \underbrace{\int_0^a \frac{r}{(r^2+z^2)^{5/2}} \, dr}_{\textcolor{red}{a}} - \underbrace{\int_0^a \frac{r^3}{(r^2+z^2)^{5/2}} \, dr}_{\textcolor{teal}{b}} \right]
+\end{align*}
+
+$a \rightarrow \text{misal } \quad \begin{aligned}[t] u &= r^2+z^2 \\ du &= 2r \, dr \end{aligned} \quad \begin{aligned}[t] r&=0, \, u=z^2 \\ r&=a, \, u=a^2+z^2 \end{aligned}$
+
+\begin{equation*}
+    \textcolor{red}{ \int_{z^2}^{a^2+z^2} \frac{\cancel{r}}{u^{5/2}} \frac{du}{2\cancel{r}} = \frac{1}{2} \int_{z^2}^{a^2+z^2} u^{-5/2} \, du = -\frac{1}{3} u^{-3/2} \bigg|_{z^2}^{a^2+z^2} = -\frac{1}{3} \left[ \frac{1}{(a^2+z^2)^{3/2}} - \frac{1}{z^3} \right] }
+\end{equation*}
+
+$b \rightarrow$
+\begin{align*}
+    \textcolor{teal}{ \int_0^a \frac{r^3}{(r^2+z^2)^{5/2}} \, dr } &= \textcolor{teal}{ \int_0^a \frac{r^2}{(r^2+z^2)^{5/2}} r \, dr = \int_0^a \left( \frac{r^2+z^2-z^2}{(r^2+z^2)^{5/2}} \right) r \, dr } \\[15pt]
+    &\Rightarrow \textcolor{teal}{ \int_0^a \frac{\cancel{r^2+z^2}}{(r^2+z^2)^{\cancel{5/2} \, 3/2}} r \, dr - z^2 \underbrace{\int_0^a \frac{r}{(r^2+z^2)^{5/2}} \, dr}_{\textcolor{red}{\rightarrow a}} } \\[15pt]
+    &\Rightarrow \textcolor{teal}{ \int_0^a \frac{r}{(r^2+z^2)^{3/2}} \, dr - z^2 \textcolor{red}{a} }
+\end{align*}
+
+misal $u = r^2+z^2$
+\begin{equation*}
+    \textcolor{blue}{ \int_0^a \frac{r}{(r^2+z^2)^{3/2}} \, dr = \frac{1}{2} \int_{z^2}^{a^2+z^2} u^{-3/2} \, du = -u^{-1/2} \bigg|_{z^2}^{a^2+z^2} = - \left[ \frac{1}{(a^2+z^2)^{1/2}} - \frac{1}{z} \right] }
+\end{equation*}
+*Ide integrasi by ChatGPT
+
+    <p>Sehingga integral menjadi</p>
+    \begin{align*}
+    \Phi &= \frac{\mu_0 m}{2} \left[ 2z^2 \left[ \frac{1}{3z^3} - \frac{1}{3(a^2+z^2)^{3/2}} \right] - \frac{1}{z} + \frac{1}{(a^2+z^2)^{1/2}} + \frac{\cancel{z^2}}{3z^{\cancel{3}}} - \frac{z^2}{3(a^2+z^2)^{3/2}} \right] \\[15pt]
+    \Phi &= \frac{\mu_0 m}{2} \left[ \cancel{\frac{2z^2}{3z^3}} - \frac{z^2 + 2z^2}{3(a^2+z^2)^{3/2}} - \cancel{\frac{2}{3z}} + \frac{1}{(a^2+z^2)^{1/2}} \right] \\[15pt]
+    \Phi &= \frac{\mu_0 m}{2} \left[ \frac{1}{(a^2+z^2)^{1/2}} - \frac{z^2}{(a^2+z^2)^{3/2}} \right] = \frac{\mu_0 m}{2} \left[ \frac{a^2 + \cancel{z^2} - \cancel{z^2}}{(a^2+z^2)^{3/2}} \right] \\[15pt]
+    \Phi &= \frac{\mu_0 m a^2}{2(a^2+z^2)^{3/2}} 
+\end{align*}
+
+
+    <p>Maka GGL induksi akibat perubahan fluks oleh perubahan posisi $z$ diberikan oleh $\varepsilon = -\frac{d\Phi}{dt} = -\frac{d\Phi}{dz}\frac{dz}{dt}$ dengan $\frac{dz}{dt} = v$.
+    $$\frac{d\Phi}{dz} = \frac{\mu_0 m a^2}{2} \left( -\frac{3}{2}(a^2+z^2)^{-5/2} (2z) \right) = -\frac{3\mu_0 m a^2 z}{2(a^2+z^2)^{5/2}}$$
+    Sehingga GGL induksi $\varepsilon(z,t)$ adalah:
+    $$\varepsilon(z,t) = -\left( -\frac{3\mu_0 m a^2 z}{2(a^2+z^2)^{5/2}} \right) v = \frac{3\mu_0 m a^2 z v}{2(a^2+z^2)^{5/2}}$$</p>
+
+    <h2>Soal nomor 3</h2>
+
+    <p>Sebuah fluida non-konduktor yang terbentuk dari molekul diatomik bermassa $m$ diketahui memiliki potensial bersifat sentral
+    $$V(r) = -\frac{a}{r} + \frac{b}{r^2}$$ dimana $a$ dan $b$ adalah bilangan positif.</p>
+
+    <ol type="a">
+        <li>Tentukanlah frekuensi osilasi $\omega_0$ molekul diatomik tersebut pada energi terendah. <br>
+        Bila diketahui, fluida tersebut mempunyai faktor kekentalan $\gamma$. Kemudian fluida tersebut dilewatkan dengan cahaya yang dapat dipandang sebagai gelombang elektromagnetik planar yang bagian osilasinya berbentuk
+        $$E(t) = E_0 \cos(\omega t)$$
+        dimana $E_0$ adalah konstanta, sehingga molekul-molekul tersebut terpolarisasi membentuk dipol listrik dengan kutub $q$ dan jarak antar kutub adalah $x(t)$. Bila diasumsikan dipol-dipol tersebut terjadi di sekitar energi terendah, maka</li>
+        <li>tentukan momen dipol dari tiap molekul fluida yang terpolarisasi. <br>
+        Sekarang, bila dalam fluida terdapat $N$ buah dipol dan semua dipol memiliki frekuensi osilasi sama, yaitu $\omega_0$. Fluida ini diletakkan dalam sebuah wadah bervolume $V$. Kemudian fluida ini dilewatkan gelombang elektromagnetik planar $\vec{E}(z,t)$. Asumsikan permeabilitas magnetik fluida ini adalah $\mu_0$,</li>
+        <li>Tentukan indeks bias fluida tersebut.</li>
+    </ol>
+
+
+
+    <p><b>Jawaban:</b></p>
+
+    <p>a. Gaya interaksi molekul diatomik pada fluida tersebut diberikan oleh:
+    $$F(r) = -\nabla V(r) = -\frac{dV(r)}{dr} = -\frac{a}{r^2} + \frac{2b}{r^3}$$
+    Pada energi terendah, sistem mengalami kesetimbangan. Jarak separasi pada energi terendah diberikan oleh $r_0$ yang memenuhi $F(r_0) = 0$:
+    $$-\frac{a}{r_0^2} + \frac{2b}{r_0^3} = 0 \implies \frac{2b}{r_0^3} = \frac{a}{r_0^2} \implies r_0 = \frac{2b}{a}$$  Misalkan molekul diatomik disimpangkan sebesar $x$ dari $r_0$, sehingga $r = r_0 + x$, dengan $x \ll r_0$. Ungkapan potensial interaksi dapat diekspansi menjadi:
+    $$V(r_0+x) \approx V(r_0) + \frac{dV}{dr}\bigg|_{r=r_0} x + \frac{1}{2}\frac{d^2V}{dr^2}\bigg|_{r=r_0} x^2$$
+    Suku turunan pertama bernilai nol karena berada di titik kesetimbangan. Sedangkan energi kinetik sistem (dengan asumsi masing-masing atom penyusun molekul diatomik bermassa $m$) diberikan oleh:
+    $$K = \frac{1}{2}m\dot{x}_1^2 + \frac{1}{2}m\dot{x}_2^2$$
+    Karena $x_1 + x_2 = x$ dan pusat massa diam ($m\dot{x}_1 = m\dot{x}_2$), maka $x_1 = x_2 = \frac{x}{2}$.
+    $$K = \frac{1}{2}m\left(\frac{\dot{x}}{2}\right)^2 + \frac{1}{2}m\left(\frac{\dot{x}}{2}\right)^2 = \frac{1}{4}m\dot{x}^2 = \frac{1}{2}\mu\dot{x}^2$$
+    dengan massa tereduksi $\mu = \frac{m}{2}$. Energi total lestari, sehingga $\frac{d}{dt}(V+K) = 0$:
+    $$\frac{1}{2}\frac{d^2V}{dr^2}\bigg|_{r=r_0} (2x\dot{x}) + \frac{1}{2}\mu (2\dot{x}\ddot{x}) = 0 \implies \ddot{x} + \frac{1}{\mu}\frac{d^2V}{dr^2}\bigg|_{r=r_0} x = 0$$
+    Ini adalah persamaan gerak harmonik dengan $\omega_0 = \sqrt{\frac{1}{\mu}\frac{d^2V}{dr^2}\big|_{r=r_0}}$. Perhitungan untuk turunan kedua:
+    $$\frac{d^2V}{dr^2}\bigg|_{r=r_0} = -\frac{2a}{r_0^3} + \frac{6b}{r_0^4} = -\frac{2a}{(2b/a)^3} + \frac{6b}{(2b/a)^4} = \frac{a^4}{8b^3}$$
+    Sehingga diperoleh frekuensi osilasinya:
+    $$\omega_0 = \sqrt{\frac{1}{(m/2)} \frac{a^4}{8b^3}} = \sqrt{\frac{a^4}{4mb^3}}$$</p>
+    <br>
+
+
+    <p>b. Di sekitar energi terendah, persamaan gerak dipengaruhi oleh gaya osilasi $E(t) = E_0 e^{i\omega t}$, gaya pemulih harmonik, dan gaya hambat fluida.
+    $$\Sigma F = \mu \ddot{x} \implies -\mu \omega_0^2 x - \mu \gamma \dot{x} + q E_0 e^{i\omega t} = \mu \ddot{x}$$
+    $$\mu \ddot{x} + \mu \gamma \dot{x} + \mu \omega_0^2 x = q E_0 e^{i\omega t}$$
+    Solusi persamaan gerak pada keadaan tunak adalah $x(t) = A e^{i\omega t}$. Diperoleh $\dot{x} = i\omega A e^{i\omega t}$ dan $\ddot{x} = -\omega^2 A e^{i\omega t}$. Substitusi ke persamaan gerak:
+    $$-\mu \omega^2 A + i\omega \mu \gamma A + \mu \omega_0^2 A = q E_0$$
+    $$A(\omega_0^2 - \omega^2 + i\omega\gamma) = \frac{q E_0}{\mu} \implies A = \frac{q E_0}{\mu (\omega_0^2 - \omega^2 + i\omega\gamma)}$$
+    Momen dipol listrik didefinisikan sebagai $p = q x(t)$. Diperoleh:
+    $$p = \frac{q^2 E_0}{\mu (\omega_0^2 - \omega^2 + i\omega\gamma)} e^{i\omega t}$$</p>
+    <br>
+
+    <p>c. Untuk mencari indeks bias fluida, didefinisikan besaran polarisasi listrik makroskopik:
+    $$\vec{P} = \frac{N p}{V} = \epsilon_0 \chi \vec{E}$$
+    dengan $\epsilon_0$ permitivitas vakum dan $\chi$ suseptibilitas listrik. Hubungan indeks bias dengan permeabilitas dan permitivitas diberikan oleh $n^2 = \frac{\mu_f \epsilon_f}{\mu_0 \epsilon_0}$. Jika $\mu_f = \mu_0$, maka $n^2 = \frac{\epsilon_f}{\epsilon_0} = 1 + \chi$.
+    Berdasarkan persamaan polarisasi:
+    $$\frac{N}{V} \frac{q^2 E_0 e^{i\omega t}}{\mu (\omega_0^2 - \omega^2 + i\omega\gamma)} = \epsilon_0 \chi (E_0 e^{i\omega t}) \implies \chi = \frac{N q^2}{\epsilon_0 V \mu (\omega_0^2 - \omega^2 + i\omega\gamma)}$$
+    Sehingga, indeks bias fluida adalah:
+    $$n = \sqrt{1 + \chi} = \sqrt{1 + \frac{N q^2}{\epsilon_0 V \mu (\omega_0^2 - \omega^2 + i\omega\gamma)}}$$</p>
+
+    <h2>Soal nomor 4</h2>
+
+    <p>Tinjaulah dua buah kerangka $O$ yang diam terhadap tanah dan $O'$ yang bergerak dengan kecepatan konstan $\vec{v}$ dengan arah sembarang. Bila $(ct, x, y, z)$ adalah koordinat di $O$ dan $(ct', x', y', z')$ adalah koordinat di $O'$ dimana $c$ adalah kelajuan cahaya dalam vakum, maka:</p>
+
+    <ol type="a">
+        <li>tentukanlah transformasi Lorentz antara $O$ and $O'$.</li>
+        <li>Bila ada sebuah partikel yang bergerak dengan kecepatan $\vec{u}$ dalam kerangka $O$, tentukanlah kecepatan partikel tersebut terhadap kerangka $O'$.</li>
+        <li>Tentukanlah transformasi Lorentz untuk energi total relativistik $E$ dan momentum relativistik $\vec{p}$.</li>
+        <li>Bila ada dua partikel yang bergerak masing-masing $\vec{v}_1$ dan $\vec{v}_2$ terhadap $O$, maka tentukanlah kecepatan relatif kedua partikel terhadap satu dengan yang lainnya.</li>
+        <li>Misalkan sebuah vektor-4 sembarang $A^\mu = (A^0, \vec{A})$ maka tentukanlah transformasi Lorentz untuk vektor-4 $A^\mu$.</li>
+    </ol>
+
+
+    <p><b>Jawaban:</b></p>
+
+    <p>a. a)] Misalkan terdapat dua buah kerangka $O$ dan $O'$.
+    
+    Transformasi Lorentz antara $O$ dan $O'$ dapat diketahui dengan ilustrasi berikut:
+    
+    % (Silakan masukkan gambar ilustrasi di sini jika diperlukan menggunakan \includegraphics)
+    
+    Maka terlihat bahwa ungkapan $\vec{r}$ terbagi menjadi dua, yaitu komponen yang sejajar dengan $\vec{v}$ ($\vec{r}_\parallel$) dan tegak lurus dengan $\vec{v}$ ($\vec{r}_\perp$). Akibatnya, komponen $\vec{r}_\perp$ dan $\vec{r}_\parallel$ bertransformasi menjadi:
+    \begin{align*}
+        \vec{r}_\perp &\rightarrow \vec{r}_\perp' = \vec{r}_\perp \\
+        \vec{r}_\parallel &\rightarrow \vec{r}_\parallel' = \gamma(\vec{r}_\parallel - \vec{v}t)
+    \end{align*}
+    dengan 
+    \begin{align*}
+        \vec{r}_\perp + \vec{r}_\parallel &= \vec{r} \\
+        \vec{r}_\perp' + \vec{r}_\parallel' &= \vec{r}'
+    \end{align*}
+    
+    Kemudian, juga diketahui bahwa $\vec{r}_\parallel = (\vec{r} \cdot \hat{v})\hat{v}$.\\
+    Menggunakan hubungan $\hat{v} = \frac{\vec{v}}{|\vec{v}|}$, maka diperoleh:
+    \begin{align*}
+        \vec{r}' &= \vec{r}_\perp + \gamma(\vec{r}_\parallel - \vec{v}t) \\
+        \vec{r}' &= \vec{r} - \vec{r}_\parallel + \gamma(\vec{r}_\parallel - \vec{v}t) \\
+        \vec{r}' &= \vec{r} - \frac{(\vec{r} \cdot \vec{v})\vec{v}}{|\vec{v}|^2} + \gamma \left[ \frac{(\vec{r} \cdot \vec{v})\vec{v}}{|\vec{v}|^2} - \vec{v}t \right] \\
+        \vec{r}' &= \vec{r} + \left[ \frac{(\vec{r} \cdot \vec{v})}{|\vec{v}|^2} [\gamma - 1] - \gamma t \right] \vec{v} \tag{1}
+    \end{align*}</p>
+
+    <p><i>diperhatikan bahwa:</i> \begin{align*}
+        \gamma &= \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} \\
+        |\vec{v}|^2 &= v^2 = v_x^2 + v_y^2 + v_z^2
+    \end{align*}
+
+Sedangkan, transformasi untuk $ct$ dapat ditentukan dengan
+\begin{equation}
+    t' = \gamma\left(t - \frac{\vec{v} \cdot \vec{r}}{c^2}\right) = \gamma t - \frac{\gamma}{c^2}(v_x x + v_y y + v_z z) \tag{2}
+\end{equation}</p>
+
+        <p>dapat dijabarkan transformasi lorentz dari $O$ ke $O'$ berupa
+\begin{equation*}
+    \begin{pmatrix} x' \\ y' \\ z' \end{pmatrix} = \begin{pmatrix} x \\ y \\ z \end{pmatrix} + \frac{(xv_x + yv_y + zv_z)}{v^2} [\gamma - 1] \begin{pmatrix} v_x \\ v_y \\ v_z \end{pmatrix} - \gamma t \begin{pmatrix} v_x \\ v_y \\ v_z \end{pmatrix}
+\end{equation*}
+
+\begin{equation*}
+    \begin{pmatrix} ct' \\ x' \\ y' \\ z' \end{pmatrix} = \begin{pmatrix}
+        c\gamma t - \frac{\gamma}{c}(v_x x + v_y y + v_z z) \\
+        x + \frac{[\gamma - 1]}{v^2}[x v_x^2 + y v_y v_x + z v_z v_x] - \gamma t v_x \\
+        y + \frac{[\gamma - 1]}{v^2}[x v_x v_y + y v_y^2 + z v_z v_y] - \gamma t v_y \\
+        z + \frac{[\gamma - 1]}{v^2}[x v_x v_z + y v_y v_z + z v_z^2] - \gamma t v_z
+    \end{pmatrix}
+\end{equation*}</p>
+<br>
+
+
+    <p>b. Jika terdapat partikel berkecepatan $\vec{v}$ di kerangka $O$, maka kecepatan di kerangka $O'$ adalah
+    
+    \begin{equation*}
+        \vec{v}' = \frac{d\vec{r}'}{dt'} = \frac{d\left( \vec{r} + \left[ \frac{(\vec{r} \cdot \vec{V})}{|\vec{V}|^2} [\gamma - 1] - \gamma t \right]\vec{V} \right)}{d\left( \gamma t - \frac{\gamma}{c^2}\vec{V} \cdot \vec{r} \right)}
+    \end{equation*}
+    
+    \begin{equation*}
+        \vec{v}' = \frac{ d\vec{r} + \left( \frac{d\vec{r} \cdot \vec{V} + \vec{r} \cdot d\vec{V}}{|\vec{V}|^2} [\gamma - 1] - \gamma dt \right)\vec{V} + \left( \frac{\vec{r} \cdot \vec{V}}{|\vec{V}|^2}(\gamma - 1) - \gamma t \right) d\vec{V} \quad \textcolor{red}{/dt} }{ \gamma dt - \frac{\gamma}{c^2} (d\vec{V} \cdot \vec{r} + \vec{V} \cdot d\vec{r}) \hspace{4.2cm} \textcolor{red}{/dt} } 
+    \end{equation*}
+    
+    \begin{equation*}
+        \vec{v}' = \frac{ \frac{d\vec{r}}{dt} + \left( \frac{\frac{d\vec{r}}{dt} \cdot \vec{V} + \vec{r} \cdot \frac{d\vec{V}}{dt}}{|\vec{V}|^2} (\gamma - 1) - \gamma \right)\vec{V} - \left( \frac{\vec{r} \cdot \vec{V}}{|\vec{V}|^2}(\gamma - 1) - \gamma t \right) \frac{d\vec{V}}{dt} }{ \gamma - \frac{\gamma}{c^2} \left( \frac{d\vec{V}}{dt} \cdot \vec{r} + \vec{V} \cdot \frac{d\vec{r}}{dt} \right) }
+    \end{equation*}
+    
+    dengan $\frac{d\vec{r}}{dt} = \vec{v}$ adalah kecepatan partikel di kerangka $O$ dan $\frac{d\vec{V}}{dt}$ adalah percepatan kerangka $O'$. Jika $V$ konstan, maka $\frac{d\vec{V}}{dt} = 0$. Akibatnya:
+    
+    \begin{equation}
+        \vec{v}' = \frac{\vec{v} + \left( \frac{\vec{v} \cdot \vec{V}}{|\vec{V}|^2} (\gamma - 1) - \gamma \right) \vec{V}}{\gamma \left( 1 - \frac{\vec{V} \cdot \vec{v}}{c^2} \right)} \tag{3}
+    \end{equation}</p>
+    <br>
+
+    <p>c. Momentum linear relativistik dapat dirumuskan sebagai $\vec{p} = \gamma_v m \vec{v}$ dengan $\gamma_v = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}$.
+    
+    Transformasi lorentz untuk momentum linear dikerangka $O'$ selanjutnya diberikan oleh
+    \begin{equation*}
+        \vec{p} \rightarrow \vec{p}' = \gamma' m \vec{v}' \, , \quad \text{dengan} \quad \gamma' = \frac{1}{\sqrt{1 - \frac{v'^2}{c^2}}}
+    \end{equation*} \begin{equation*}
+    v'^2 = \vec{v}' \cdot \vec{v}' = \frac{1}{\gamma^2 \left(1 - \frac{\vec{V} \cdot \vec{v}}{c^2} \right)^2} \left[ v^2 + V^2 \left( \frac{\vec{v} \cdot \vec{V}}{V^2} (\gamma - 1) - \gamma \right)^2 + 2 \left( \frac{\vec{v} \cdot \vec{V}}{V^2} (\gamma - 1) - \gamma \right) \vec{v} \cdot \vec{V} \right]
+\end{equation*}
+
+\begin{equation*}
+    \frac{1}{\gamma'^2} = 1 - \frac{1}{c^2 \gamma^2 \left( 1 - \frac{\vec{V} \cdot \vec{v}}{c^2} \right)^2} \underbrace{\left[ v^2 + V^2 \left( \frac{\vec{v} \cdot \vec{V}}{V^2}(\gamma - 1) - \gamma \right)^2 + 2 \left( \frac{\vec{v} \cdot \vec{V}}{V^2}(\gamma - 1) - \gamma \right) \vec{v} \cdot \vec{V} \right]}_{C}
+\end{equation*}</p>
+
+    <p>Sederhanakan $C$
+\begin{align*}
+    C &= v^2 + V^2 \left( \frac{(\vec{v} \cdot \vec{V})^2}{V^4} (\gamma - 1)^2 + \gamma^2 - \frac{2(\vec{v} \cdot \vec{V})}{V^2} (\gamma - 1)\gamma \right) + 2 \frac{(\vec{v} \cdot \vec{V})^2}{V^2} (\gamma - 1) - 2\gamma(\vec{v} \cdot \vec{V}) \\
+    &\Rightarrow v^2 + \frac{(\vec{v} \cdot \vec{V})^2}{V^2} (\gamma - 1)^2 + V^2\gamma^2 - 2(\vec{v} \cdot \vec{V})(\gamma - 1)\gamma + 2 \frac{(\vec{v} \cdot \vec{V})^2}{V^2} (\gamma - 1) - 2\gamma(\vec{v} \cdot \vec{V}) \\
+    &\Rightarrow v^2 + \frac{(\vec{v} \cdot \vec{V})^2}{V^2} (\gamma - 1)^2 + 2 \frac{(\vec{v} \cdot \vec{V})^2}{V^2} (\gamma - 1) - 2(\vec{v} \cdot \vec{V})(\gamma - 1)\gamma - 2\gamma(\vec{v} \cdot \vec{V}) + V^2\gamma^2 \\
+    &\Rightarrow v^2 + \frac{(\vec{v} \cdot \vec{V})^2}{V^2} (\gamma - 1) [\gamma - 1 + 2] - 2\gamma(\vec{v} \cdot \vec{V})(\gamma - 1 + 1) + V^2\gamma^2 \\
+    &\Rightarrow v^2 + \frac{(\vec{v} \cdot \vec{V})^2}{V^2} (\gamma^2 - 1) - 2\gamma^2(\vec{v} \cdot \vec{V}) + V^2\gamma^2
+\end{align*}
+
+Kemudian, 
+\begin{align*}
+    \frac{1}{\gamma'^2} &= \frac{c^2\gamma^2 \left( \frac{c^2 - \vec{v}\cdot\vec{V}}{c^2} \right)^2 - v^2 - \frac{(\vec{v}\cdot\vec{V})^2}{V^2}(\gamma^2-1) + 2\gamma^2(\vec{v}\cdot\vec{V}) - V^2\gamma^2}{c^2\gamma^2\left(1 - \frac{\vec{V}\cdot\vec{v}}{c^2}\right)^2} \\[15pt]
+    \frac{1}{\gamma'^2} &= \frac{\cancel{c^2}\gamma^2 \left( \frac{c^4 + (\vec{v}\cdot\vec{V})^2 - 2c^2\vec{v}\cdot\vec{V}}{c^{\cancel{4}2}} \right) - v^2 - \frac{(\vec{v}\cdot\vec{V})^2}{V^2}(\gamma^2-1) + 2\gamma^2(\vec{v}\cdot\vec{V}) - V^2\gamma^2}{c^2\gamma^2\left(1 - \frac{\vec{V}\cdot\vec{v}}{c^2}\right)^2} \\[15pt]
+    \frac{1}{\gamma'^2} &= \frac{\gamma^2 c^2 + \cancel{\frac{(\vec{v}\cdot\vec{V})^2}{c^2}\gamma^2} - \cancel{2(\vec{v}\cdot\vec{V})\gamma^2} - v^2 - \cancel{\frac{(\vec{v}\cdot\vec{V})^2}{V^2}(\gamma^2-1)} + \cancel{2\gamma^2(\vec{v}\cdot\vec{V})} - V^2\gamma^2}{c^2\gamma^2\left(1 - \frac{\vec{V}\cdot\vec{v}}{c^2}\right)^2}
+\end{align*}</p>
+
+
+    <p>dengan catatan
+\begin{equation*}
+    \gamma^2 - 1 = \frac{1}{1 - \frac{V^2}{c^2}} - 1 = \frac{1 - 1 + \frac{V^2}{c^2}}{1 - \frac{V^2}{c^2}} = \frac{\frac{V^2}{c^2}}{1 - \frac{V^2}{c^2}} = \frac{\gamma^2 V^2}{c^2}
+\end{equation*}
+</p>
+
+yang menghasilkan 
+
+\begin{align*}
+    \frac{1}{\gamma'^2} &= \frac{\gamma^2 c^2 - \gamma^2 V^2 - v^2}{c^2\gamma^2\left(1 - \frac{\vec{V}\cdot\vec{v}}{c^2}\right)^2} = \frac{\gamma^2(c^2 - V^2) - v^2}{c^2\gamma^2\left(1 - \frac{\vec{V}\cdot\vec{v}}{c^2}\right)^2} \\[15pt]
+    \frac{1}{\gamma'^2} &= \frac{\frac{c^2}{\cancel{c^2 - V^2}}\cancel{(c^2 - V^2)} - v^2}{c^2\gamma^2\left(1 - \frac{\vec{V}\cdot\vec{v}}{c^2}\right)^2} = \frac{1}{\gamma'^2} = \frac{\left(1 - \frac{v^2}{c^2}\right) \quad \textcolor{teal}{\rightarrow \frac{1}{\gamma_v^2}}}{\gamma^2\left(1 - \frac{\vec{V}\cdot\vec{v}}{c^2}\right)^2}
+\end{align*}
+
+\begin{equation*}
+    \gamma' = \gamma\gamma_v\left(1 - \frac{\vec{v}\cdot\vec{V}}{c^2}\right) \quad  
+\end{equation*}
+\*Cara untuk mengetahui hubungan $\gamma'$ dengan $\gamma$ dan $\gamma_v$ ini sangat counter intuitif :(
+
+
+
+    <p>Sehingga
+\begin{align*}
+    \vec{p}' &= \cancel{\gamma \gamma_v \left( 1 - \frac{\vec{v} \cdot \vec{V}}{c^2} \right)} m \left( \frac{\vec{v} + \left( \frac{\vec{v} \cdot \vec{V}}{|\vec{V}|^2}(\gamma - 1) - \gamma \right)\vec{V}}{\cancel{\gamma \left( 1 - \frac{\vec{V} \cdot \vec{v}}{c^2} \right)}} \right) \\[15pt]
+    \vec{p}' &= \left[ \vec{p} + \frac{\vec{p} \cdot \vec{V}}{|\vec{V}|^2} (\gamma - 1) - \gamma \gamma_v m \right] \vec{V}
+\end{align*}
+
+Didefinisikan energi relativistik di kerangka $O$ adalah $E = \gamma_v m c^2$. Sehingga
+
+\begin{equation*}
+    \vec{p}' = \left[ \vec{p} + \frac{\vec{p} \cdot \vec{V}}{|\vec{V}|^2} (\gamma - 1) - \frac{\gamma E}{c^2} \right] \vec{V} \hspace{2cm} \textcolor{teal}{...... (4)}
+\end{equation*}
+Sedangkan untuk energi $E'$ di kerangka $O'$ adalah
+\begin{align*}
+    E' &= \gamma' mc^2 = \gamma \gamma_v \left( 1 - \frac{\vec{v} \cdot \vec{V}}{c^2} \right) mc^2 \\[10pt]
+    E' &= \gamma \left[ \gamma_v mc^2 - \frac{\gamma_v m \vec{v} \cdot \vec{V}}{c^2} \right] = \gamma \left[ E - \frac{\vec{p} \cdot \vec{V}}{c^2} \right] \hspace{1.5cm} \textcolor{teal}{...... (5)}
+\end{align*}</p>
+
+    <p>Jika diperhatikan, persamaan (4) dan (5) memiliki pola yang sama seperti persamaan (1) dan (2), yaitu ketika melakukan transformasi $X^\mu = (ct, x, y, z) \rightarrow X'^\mu = (ct', x', y', z')$, sehingga dapat disimpulkan bahwa transformasi energi-momentum dapat dianalogikan seperti transformasi vektor-4 ruang waktu, dengan analogi $t \rightarrow E$ dan $\vec{r} \rightarrow \vec{p}$, akan membentuk $P^\mu = (P_0, \vec{P}) = \left( \frac{E}{c}, \vec{P} \right)$.</p>
+
+    <br>
+
+    <p>d. Jika dianalogikan seperti persamaan (3), maka untuk kasus kecepatan partikel 1 relatif dari partikel 2 adalah:
+
+    $$ \vec{v}_{12} = \frac{\vec{v}_1 + \left( \frac{\vec{v}_1 \cdot \vec{v}_2}{|\vec{v}_2|^2}(\gamma_2 - 1) - \gamma_2 \right)\vec{v}_2}{\gamma_2 \left( 1 - \frac{\vec{v}_1 \cdot \vec{v}_2}{c^2} \right)} \quad , \text{dengan} \quad \gamma_2 = \frac{1}{\sqrt{1 - \frac{v_2^2}{c^2}}} \quad   $$
+
+    Sebaliknya, kecepatan partikel 2 relatif dari partikel 1 adalah:
+
+    $$ \vec{v}_{21} = \frac{\vec{v}_2 + \left( \frac{\vec{v}_2 \cdot \vec{v}_1}{|\vec{v}_1|^2}(\gamma_1 - 1) - \gamma_1 \right)\vec{v}_1}{\gamma_1 \left( 1 - \frac{\vec{v}_2 \cdot \vec{v}_1}{c^2} \right)} \quad , \text{dengan} \quad \gamma_1 = \frac{1}{\sqrt{1 - \frac{v_1^2}{c^2}}} \quad   $$</p>
+
+    <br>
+
+
+    <p>e. Menurut kesimpulan yang diperoleh dari (c), sebarang vektor-4 $A^\mu = (A_0, \vec{A})$ akan mengalami transformasi Lorentz pada masing-masing komponennya sehingga
+
+    $$ A^\mu \rightarrow A'^\mu = (A_0', \vec{A}') \quad , \text{dengan} \quad \quad \begin{aligned} A_0' &= \gamma \left( A_0 - \frac{\vec{V} \cdot \vec{A}}{c^2} \right) \\[10pt] \vec{A}' &= \vec{A} + \left[ \frac{(\vec{A} \cdot \vec{V})}{|\vec{V}|^2} [\gamma - 1] - \gamma A_0 \right] \vec{V} \quad   \end{aligned} $$</p>
+
+    <p></p>
+
+    <p></p>
+
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+        <p></p>
+
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+        <p></p>
+
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+</main>
+
+
+    <footer>
+        <p>&copy; 2026 Raihan Fadhel. Powered by Gemini. Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.</p>
+    </footer>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'id', // Menandai bahwa bahasa asli web ini adalah Indonesia
+                includedLanguages: 'id,en', // Membatasi opsi dropdown HANYA untuk Indonesia dan Inggris
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+        const themeBtn = document.getElementById('theme-btn');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        if (currentTheme === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            themeBtn.innerHTML = '☀️ Light Mode';
+        }
+
+        themeBtn.addEventListener('click', () => {
+            if (document.body.getAttribute('data-theme') === 'dark') {
+                document.body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeBtn.innerHTML = '🌙 Dark Mode';
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeBtn.innerHTML = '☀️ Light Mode';
+            }
+        });
+    </script>
+
+</body>
+</html>

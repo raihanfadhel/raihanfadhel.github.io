@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raihan Fadhel | Home</title>
+    <title>Raihan Fadhel | Blog</title>
     <style>
         /* --- SKEMA WARNA & VARIABEL --- */
         :root {
@@ -37,82 +37,6 @@
             /* Mencegah Google Translate menggeser halaman ke bawah */
             top: 0 !important; 
         }
-
-        /* --- LAYOUT 2 KOLOM (SIDEBAR & KONTEN) --- */
-.layout-container {
-    display: flex;
-    gap: 3rem;
-    max-width: 1000px;
-    margin: 3rem auto;
-    padding: 0 2rem;
-    align-items: flex-start; /* Agar sidebar tidak memanjang ke bawah mengikuti isi konten */
-}
-
-/* --- STYLING SIDEBAR (PROFIL SAMPING) --- */
-.sidebar {
-    flex: 1; /* Lebar sidebar 1 bagian */
-    min-width: 250px;
-}
-
-.profile-img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%; /* Membuat gambar menjadi bulat sempurna */
-    object-fit: cover; /* Mencegah gambar gepeng */
-    border: 3px solid var(--border-color);
-    margin-bottom: 1rem;
-}
-
-.sidebar h2 {
-    margin-top: 0;
-    border-bottom: none;
-    margin-bottom: 0.5rem;
-}
-
-.sidebar p {
-    font-size: 0.9rem;
-    opacity: 0.9;
-    margin-bottom: 1.5rem;
-}
-
-.social-links {
-    list-style: none; /* Menghilangkan titik-titik (bullet) bawaan */
-    padding: 0;
-    margin: 0;
-}
-
-.social-links li {
-    margin-bottom: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 12px; /* Jarak antara ikon dan teks */
-    font-size: 0.95rem;
-}
-
-.social-links i {
-    width: 20px;
-    text-align: center;
-    color: var(--link-color);
-    font-size: 1.1rem;
-}
-
-/* --- STYLING KONTEN UTAMA --- */
-.main-content {
-    flex: 2.5; /* Lebar konten utama 2.5 kali lipat sidebar */
-}
-
-/* --- RESPONSIVITAS (Tampilan Layar HP) --- */
-@media (max-width: 768px) {
-    .layout-container {
-        flex-direction: column; /* Mengubah 2 kolom menjadi atas-bawah saat dibuka di HP */
-    }
-    .sidebar {
-        text-align: center; /* Memposisikan profil di tengah saat di HP */
-    }
-    .social-links li {
-        justify-content: center; /* Menengahkan ikon dan teks saat di HP */
-    }
-}
 
         /* Menyembunyikan banner atas Google Translate yang muncul otomatis */
         .VIpgJd-ZVi9od-ORHb-OEVmcd { display: none !important; }
@@ -248,6 +172,11 @@
             opacity: 0.8;
         }
 
+        .date {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
         .gambar-tengah {
     display: block;
     margin: 2rem auto; /* Memberi jarak atas-bawah dan memposisikan gambar di tengah */
@@ -257,6 +186,50 @@
     box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Opsional: Memberi efek bayangan tipis agar elegan */
 }
 
+        .blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.blog-card {
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    color: inherit; /* Mengikuti warna teks tema */
+    display: block;
+}
+
+.blog-card:hover {
+    background-color: var(--header-bg);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transform: translateY(-2px); /* Efek sedikit terangkat saat disentuh kursor */
+}
+
+.blog-card h3 {
+    margin-top: 0;
+    border-bottom: none;
+    margin-bottom: 0.5rem;
+    color: var(--link-color);
+}
+
+.blog-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--link-color);
+}
     </style>
 
     <script>
@@ -276,10 +249,10 @@
     <header>
         <h1>Raihan Fadhel</h1>
         <nav>
-            <a href="index.html" class="active">Home</a>
+            <a href="index.html">Home</a>
             <a href="portfolio.html">Portfolio</a>
             <a href="projects.html">Projects</a>
-            <a href="blog.html">Blog</a>
+            <a href="blog.html" class="active">Blog</a>
             
             <div class="action-btns">
                 <div id="google_translate_element"></div>
@@ -289,37 +262,28 @@
         </nav>
     </header>
 
-<div class="layout-container">
+    <main>
+    <h2>Blog & Personal Notes</h2>
+    <p>A collection of my old Blogspot posts and future personal notes about my life.</p>
 
-    <aside class="sidebar">
-        <img src="images/fotoku.jpeg" alt="Foto Profil" class="profile-img">
-        
-        <h2>Raihan Fadhel</h2>
-        
-        <ul class="social-links">
-            <li>Yogyakarta, Indonesia</li>
-            <li>Universitas Gadjah Mada</li>
-            <li><a href="mailto:raihanfadhel@gmail.com" target="_blank"> Email</a></li>
-            <li><a href="https://linkedin.com/in/raihanfadhel/" target="_blank"> LinkedIn</a></li>
-            <li><a href="https://www.youtube.com/@raihanfadhel9699" target="_blank"> YouTube</a></li>
-        </ul>
-    </aside>
+    <div class="blog-list">
+        <a href="osilatorharmonikaljabar.html" class="blog-card">
+            <h3>Penyelesaian Sistem Osilator Harmonik Kuantum Satu Dimensi dengan Cara Aljabar (ID)</h3>
+            <figure> <img src="images/osilatorklasik.png" alt="images/osilatorklasik" class="gambar-tengah"> </figure>
+            <p>Apa sih sistem osilator harmonik satu dimensi itu? Ini sebenarnya cuma nama keren buat "sistem pegas dan massa ....</p>
+            <span class="read-more">Read more &rarr;</span>
+        </a>
 
-    <main class="main-content">
-        <section>
-            <h2>Hello!</h2>
-            
-            <p>My name is Muhammad Raihannafi Fadhel, or you can just call me Raihan (pronounced: Rah-ee-Hahn) or Fadhel (pronounced: Fah-dell). I know it's a bit confusing, but for Fadhel, it's "Fah", like in "father", and "dell", like the computer brand.</p>
+        <a href="efekdoppler.html" class="blog-card">
+            <h3>Efek Doppler dalam Astronomi (ID)</h3><figure>
+            <img src="images/dopplerambulan.png" alt="images/dopplerambulan" class="gambar-tengah"></figure>
+            <p>Waktu aku kelas 11 (2 SMA), aku belajar materi yang menurutku cukup menarik, "Efek Doppler" namanya ....</p>
+            <span class="read-more">Read more &rarr;</span>
+        </a>
 
-            <p>Since high school, I have been really intrigued by Physics and actively joined science competitions, particularly as one of the delegates of my high school in the Astronomy Olympiad (OSN) for two years straight. This passion has persisted until I enrolled in a physics undergraduate program at Universitas Gadjah Mada (UGM). The pinnacle of my career was in 2024, where I was awarded a Bronze Medal in Physics at Olimpiade Nasional Matematika dan Ilmu Pengetahuan Alam - Perguruan Tinggi (ONMIPA-PT). Actually, I wasn't quite satisfied with the result, and deep down in my heart, I felt I should've earned more, but still... Alhamdulillah. However, because my final year was already in front of my very eyes, and kind of haunted me, I decided to end my olympiad career and focus on my thesis project.</p>
-            <figure> <img src="images/onmipa2024.jpg" alt="images/onmipa2024" class="gambar-tengah"> </figure>
+    </div>
 
-            <p>My <a href="https://etd.repository.ugm.ac.id/penelitian/detail/252225" target="_blank">undergraduate thesis project</a> has opened me up to the world of particle physics, and under <a href="https://scholar.google.com/citations?user=-bfQdHUAAAAJ&hl=en" target="_blank">Dr. Chalis Setyadi</a>'s supervision, I became deeply immersed in the research of phenomenological high-energy physics. To put it simply, I examined the behaviour of the internal structure of the proton in high-energy scattering, particularly in exclusive vector meson production. This small but meaningful project has allowed me to engage further in academia, and led me to present my research at a Southeast Asian Workshop on Nuclear and Hadron Physics and to publish my first-ever manuscript based on my results in Modern Physics Letters A.</p>
-            <figure> <img src="images/undergradthesisdef.png" alt="images/undergradthesisdef" class="gambar-tengah"> </figure>
-
-            <p>Recently, I was admitted to join the Joint European Master Degree in Nuclear Physics, starting in October 2026, with an Erasmus Mundus Scholarship. Hopefully, under this program, I will be able to deepen my understanding of the theoretical and computational aspects of nuclear and particle physics, as well as sharpen my research skills to contribute further to the field, to stay at the forefront of experimental and future collider programs (Bismillah!).</p>
- 
-        </section>
+</main>
 
 
     <footer>
@@ -329,7 +293,7 @@
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
-                pageLanguage: 'en', // Menandai bahwa bahasa asli web ini adalah Indonesia
+                pageLanguage: 'id', // Menandai bahwa bahasa asli web ini adalah Indonesia
                 includedLanguages: 'id,en', // Membatasi opsi dropdown HANYA untuk Indonesia dan Inggris
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE
             }, 'google_translate_element');
