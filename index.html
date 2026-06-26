@@ -38,86 +38,6 @@
             top: 0 !important; 
         }
 
-        /* --- LAYOUT 2 KOLOM (SIDEBAR & KONTEN) --- */
-.layout-container {
-    display: flex;
-    gap: 3rem;
-    max-width: 1000px;
-    margin: 3rem auto;
-    padding: 0 2rem;
-    align-items: flex-start; /* Agar sidebar tidak memanjang ke bawah mengikuti isi konten */
-}
-
-/* --- STYLING SIDEBAR (PROFIL SAMPING) --- */
-.sidebar {
-    flex: 1; /* Lebar sidebar 1 bagian */
-    min-width: 250px;
-}
-
-.profile-img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%; /* Membuat gambar menjadi bulat sempurna */
-    object-fit: cover; /* Mencegah gambar gepeng */
-    border: 3px solid var(--border-color);
-    margin-bottom: 1rem;
-}
-
-.sidebar h2 {
-    margin-top: 0;
-    border-bottom: none;
-    margin-bottom: 0.5rem;
-}
-
-.sidebar p {
-    font-size: 0.9rem;
-    opacity: 0.9;
-    margin-bottom: 1.5rem;
-}
-
-.social-links {
-    list-style: none; /* Menghilangkan titik-titik (bullet) bawaan */
-    padding: 0;
-    margin: 0;
-}
-
-.social-links li {
-    margin-bottom: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 12px; /* Jarak antara ikon dan teks */
-    font-size: 0.95rem;
-}
-
-.social-links i {
-    width: 20px;
-    text-align: center;
-    color: var(--link-color);
-    font-size: 1.1rem;
-}
-
-/* --- STYLING KONTEN UTAMA --- */
-.main-content {
-    flex: 2.5; /* Lebar konten utama 2.5 kali lipat sidebar */
-}
-
-/* --- RESPONSIVITAS (Tampilan Layar HP) --- */
-@media (max-width: 768px) {
-    .layout-container {
-        flex-direction: column; 
-        padding: 0 1rem; /* Mengurangi jarak kosong di kiri & kanan agar teks lebih lebar */
-        margin-top: 1.5rem; /* Mengurangi jarak kosong di atas agar tidak terlalu jauh */
-    }
-    .sidebar {
-        text-align: center; /* Memposisikan profil di tengah saat di HP */
-    }
-    .social-links li {
-        justify-content: center; /* Menengahkan ikon dan teks saat di HP */
-    }
-
-
-}
-
         /* Menyembunyikan banner atas Google Translate yang muncul otomatis */
         .VIpgJd-ZVi9od-ORHb-OEVmcd { display: none !important; }
         .goog-te-banner-frame { display: none !important; }
@@ -253,13 +173,74 @@
         }
 
         .gambar-tengah {
-    display: block;
-    margin: 2rem auto; /* Memberi jarak atas-bawah dan memposisikan gambar di tengah */
-    max-width: 100%; /* Memastikan gambar tidak melebihi lebar layar */
-    width: 400px; /* Kamu bisa mengubah angka ini untuk memperbesar/memperkecil gambar */
-    border-radius: 8px; /* Opsional: Membuat sudut gambar menjadi sedikit membulat/tidak lancip */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Opsional: Memberi efek bayangan tipis agar elegan */
+            display: block;
+            margin: 2rem auto; /* Memberi jarak atas-bawah dan memposisikan gambar di tengah */
+            max-width: 100%; /* Memastikan gambar tidak melebihi lebar layar */
+            width: 400px; /* Kamu bisa mengubah angka ini untuk memperbesar/memperkecil gambar */
+            border-radius: 8px; /* Opsional: Membuat sudut gambar menjadi sedikit membulat/tidak lancip */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Opsional: Memberi efek bayangan tipis agar elegan */
+        }
+
+        /* --- STYLING UNTUK NAMA & FOTO DI HEADER --- */
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Jarak spasi antara foto dan nama */
 }
+
+.header-avatar {
+    width: 50px; /* Memaksa foto menjadi ukuran kecil/avatar */
+    height: 50px;
+    border-radius: 50%; /* Membuat foto menjadi bulat sempurna */
+    object-fit: cover; /* Mencegah gambar terlihat gepeng/tertarik */
+    border: 2px solid var(--border-color); /* Memberikan garis tepi tipis agar elegan */
+}
+
+        .blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.blog-card {
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    color: inherit; /* Mengikuti warna teks tema */
+    display: block;
+}
+
+.blog-card:hover {
+    background-color: var(--header-bg);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transform: translateY(-2px); /* Efek sedikit terangkat saat disentuh kursor */
+}
+
+.blog-card h3 {
+    margin-top: 0;
+    border-bottom: none;
+    margin-bottom: 0.5rem;
+    color: var(--link-color);
+}
+
+.blog-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--link-color);
+}
+
 
     </style>
 
@@ -278,7 +259,10 @@
 <body>
 
     <header>
-        <h1>Raihan Fadhel</h1>
+        <div class="header-brand">
+            <img src="images/fotoku.jpeg" alt="Foto Profil" class="header-avatar">
+            <h1>Raihan Fadhel</h1>
+        </div>
         <nav>
             <a href="index.html" class="active">Home</a>
             <a href="portfolio.html">Portfolio</a>
@@ -293,23 +277,8 @@
         </nav>
     </header>
 
-<div class="layout-container">
 
-    <aside class="sidebar">
-        <img src="images/fotoku.jpeg" alt="Foto Profil" class="profile-img">
-        
-        <h2>Raihan Fadhel</h2>
-        
-        <ul class="social-links">
-            <li>Yogyakarta, Indonesia</li>
-            <li>Universitas Gadjah Mada</li>
-            <li><a href="mailto:raihanfadhel72@gmail.com" target="_blank"> Email</a></li>
-            <li><a href="https://linkedin.com/in/raihanfadhel/" target="_blank"> LinkedIn</a></li>
-            <li><a href="https://www.youtube.com/@raihanfadhel9699" target="_blank"> YouTube</a></li>
-        </ul>
-    </aside>
-
-    <main class="main-content">
+    <main>
         <section>
             <h2>Hello!</h2>
             
@@ -324,6 +293,22 @@
             <p>Recently, I was admitted to join the Joint European Master Degree in Nuclear Physics, starting in October 2026, with an Erasmus Mundus Scholarship. Hopefully, under this program, I will be able to deepen my understanding of the theoretical and computational aspects of nuclear and particle physics, as well as sharpen my research skills to contribute further to the field, to stay at the forefront of experimental and future collider programs (Bismillah!).</p>
  
         </section>
+
+        <div class="blog-list">
+            <h2>New and Featured Posts</h2>
+        <a href="onmipa2024eldin.html" class="blog-card">
+            <h3>Pembahasan ONMIPA Fisika Tingkat Nasional Tahun 2024 Subbidang Elektrodinamika (ID)</h3>
+            <p>Tinjau sebuah partikel ion atom X yang mempunyai potensial berbentuk ....</p>
+            <span class="read-more">Read more &rarr;</span>
+        </a>
+
+        <a href="onmipa2024fismodkuantum.html" class="blog-card">
+            <h3>Pembahasan ONMIPA Fisika Tingkat Nasional Tahun 2024 Subbidang Fisika Modern dan Mekanika Kuantum (ID)</h3>
+            <p>Tinjau sebuah partikel dalam kotak satu dimensi sepanjang $a$ ....</p>
+            <span class="read-more">Read more &rarr;</span>
+        </a>
+
+    </div>
 
 
     <footer>

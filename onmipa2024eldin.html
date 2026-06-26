@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raihan Fadhel | Projects</title>
+    <title>Raihan Fadhel | ONMIPA 2024 Eldin</title>
     <style>
         /* --- SKEMA WARNA & VARIABEL --- */
         :root {
@@ -186,6 +186,21 @@
     box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Opsional: Memberi efek bayangan tipis agar elegan */
 }
 
+       /* --- STYLING UNTUK NAMA & FOTO DI HEADER --- */
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Jarak spasi antara foto dan nama */
+}
+
+.header-avatar {
+    width: 50px; /* Memaksa foto menjadi ukuran kecil/avatar */
+    height: 50px;
+    border-radius: 50%; /* Membuat foto menjadi bulat sempurna */
+    object-fit: cover; /* Mencegah gambar terlihat gepeng/tertarik */
+    border: 2px solid var(--border-color); /* Memberikan garis tepi tipis agar elegan */
+}
+
         .blog-list {
     display: flex;
     flex-direction: column;
@@ -247,7 +262,10 @@
 <body>
 
     <header>
-        <h1>Raihan Fadhel</h1>
+        <div class="header-brand">
+            <img src="images/fotoku.jpeg" alt="Foto Profil" class="header-avatar">
+            <h1>Raihan Fadhel</h1>
+        </div>
         <nav>
             <a href="index.html">Home</a>
             <a href="portfolio.html">Portfolio</a>

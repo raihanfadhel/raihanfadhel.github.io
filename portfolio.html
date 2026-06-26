@@ -172,6 +172,21 @@
             opacity: 0.8;
         }
 
+               /* --- STYLING UNTUK NAMA & FOTO DI HEADER --- */
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Jarak spasi antara foto dan nama */
+}
+
+.header-avatar {
+    width: 50px; /* Memaksa foto menjadi ukuran kecil/avatar */
+    height: 50px;
+    border-radius: 50%; /* Membuat foto menjadi bulat sempurna */
+    object-fit: cover; /* Mencegah gambar terlihat gepeng/tertarik */
+    border: 2px solid var(--border-color); /* Memberikan garis tepi tipis agar elegan */
+}
+
         .date {
             font-style: italic;
             color: #7f8c8d;
@@ -193,7 +208,10 @@
 <body>
 
     <header>
-        <h1>Raihan Fadhel</h1>
+        <div class="header-brand">
+            <img src="images/fotoku.jpeg" alt="Foto Profil" class="header-avatar">
+            <h1>Raihan Fadhel</h1>
+        </div>
         <nav>
             <a href="index.html">Home</a>
             <a href="portfolio.html" class="active">Portfolio</a>
@@ -211,7 +229,10 @@
     <main>
         <h1>Muhammad Raihannafi Fadhel</h1>
             Yogyakarta, Indonesia <br> 
-            <a href="mailto:raihanfadhel72@gmail.com" target="_blank" class="link"> raihanfadhel72@gmail.com </a><br> 
+            <a href="mailto:raihanfadhel@gmail.com" target="_blank"> Email</a><br>
+            <a href="https://linkedin.com/in/raihanfadhel/" target="_blank"> LinkedIn</a><br>
+            <a href="https://www.youtube.com/@raihanfadhel9699" target="_blank"> YouTube</a><br>
+
 
         <section id="summary">
         <h2>About Me</h2>
